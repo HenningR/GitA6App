@@ -1,11 +1,17 @@
-# MySecureZoneApp
+# Angular App
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
 #Build/Serve
   Setup in Angular.json file
-  ng serve                                ng build --aot                              --Develepment serve/build   (AOT - Ahead of Time compiler )
-  ng  serve --configuration=test          ng build --configuration=test               --Test serve/build
-  ng  serve --configuration=production    ng build --configuration=production         --Production serve/build
+  --Develepment serve/build   (AOT - Ahead of Time compiler )
+  ng serve                                
+  ng build --aot    
+  --Test serve/build
+  ng  serve --configuration=test          
+  ng build --configuration=test     
+  --Production serve/build
+  ng  serve --configuration=production    
+  ng build --configuration=production         
 
 ## Development server
 
