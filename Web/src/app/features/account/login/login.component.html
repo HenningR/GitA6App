@@ -1,0 +1,124 @@
+<div class="row" style="margin-top: 0">
+  <!-- <div class="col-lg-3 col-md-12 col-sm-12" style=" padding-bottom:10px">
+    <div class="round-imagep" style="height:auto; width:70px; max-width:70px; margin: 0 auto">
+      <img src="../../../assets/feature-images/client-login-feature.jpg" alt="Client Login Image" style="height:100%; width:100%">
+    </div>
+  </div> -->
+
+  <div class="col-lg-2 col-md-12 col-sm-12" style="margin-top: 0"></div>
+      
+
+  <div class="col-lg-8 col-md-12 col-sm-12" style="margin:5px">
+
+    <section>
+      <header>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12" style="margin: 0 auto">
+              <!-- <div class="round-imagep" style="height:auto; width:20px; max-width:20px;">
+                  <img src="../../../assets/feature-images/client-login-feature.jpg" alt="Client Login Image" style="height:100%; width:100%" class="round-imagep">
+        
+                </div> -->
+               
+                <h1 >
+                    <strong>Client Login</strong>
+                  </h1>
+          </div>
+
+        </div>
+       
+       
+
+      </header>
+
+
+      <div *ngIf="accountSV.isAccountLogin() == false; then showErrorMessage">
+      </div>
+      <ng-template #showErrorMessage>
+
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <span class="MySecureZone-user-generated-content " [innerHTML]="loginSanHTML"></span>
+
+          </div>
+        </div>
+      </ng-template>
+
+
+
+      <div class="login-form" style="width:100%">
+        <div class="login_form_holder">
+
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <p></p>
+            </div>
+          </div>
+          <div class="row">
+            &nbsp;
+          </div>
+
+          <div class="row ">
+            <div class="col-lg-7 col-md-7 col-sm-7">
+              <label for="userName">Username:</label>
+              <input type="text" placeholder="UserName" [(ngModel)]="userName" value="" class="loginInput"
+              />
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+            </div>
+
+            <div class="col-lg-7 col-md-7 col-sm-7">
+              <label for="pwd">Password:</label>
+              <input type="password" placeholder="Password" [(ngModel)]="userPsw" value="" class="loginInput"
+              />
+              <p style=" text-align:right">
+                <input id="LoginButton" type="button" (click)="loginClient()" name="action" value="Login" class="btn btn-primary" *ngIf="globalServ.ShowLoginOTP == false" />
+              </p>
+            </div>
+
+            <div class="col-lg-5 col-md-5 col-sm-5" >
+              <div class="row" *ngIf="globalServ.ShowLoginOTP == false">
+                <p style="padding:0; text-align:right;">
+                  <a (click)="changeRoute('/forgetpassword')">Forgot Password?</a>
+                  <a (click)="TestLogin()"> .</a>
+                </p>
+              </div>
+              <div class="row" *ngIf="globalServ.ShowLoginOTP == false">
+                <p style="padding:0; text-align:right;">
+                  <a (click)="changeRoute('/registerclient')">Register for My Secure Zone</a>
+                </p>
+              </div>
+
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+            </div>
+          </div>
+        </div>
+
+<div *ngIf="globalServ.ShowLoginOTP">
+    <app-otpverification-card [SendOTP]="globalServ.SendLoginOTP" (ValidationResult)="ValidationResult($event)" ></app-otpverification-card> 
+    
+
+</div>
+      
+
+        <div class="row">
+          <div class="col-lg-7 col-md-7 col-sm-7">
+            <div class="MySecureZone-user-generated-content">
+              <p>If you need technical support during the registration or login procedure. The Citadel call centre is available
+                from 7am until 7pm weekdays on 086 110 0628 or email to
+                <a style="font-family:Georgia" href="mailto:support@citadel.co.za?subject=Request for My Secure Zone username and password">support@citadel.co.za</a>
+              </p>
+              <p>Once you have logged in to My Secure Zone, and you have questions or need more information about details contained
+                within the portal, please contact your advisor.</p>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-5 col-sm-5">
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="col-lg-2 col-md-12 col-sm-12"></div>
+</div>

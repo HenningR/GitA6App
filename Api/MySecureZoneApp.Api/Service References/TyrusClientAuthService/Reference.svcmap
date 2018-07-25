@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="05735580-4a7f-4319-aa4c-3d0245ed1f30" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ClientAuthService.xsd" MetadataType="Schema" ID="a9c1628f-009b-4788-9050-620fec9d3985" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ClientAuthService1.xsd" MetadataType="Schema" ID="13eca0e6-380f-4136-ae29-578da8c757a0" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ClientAuthService.wsdl" MetadataType="Wsdl" ID="2425ea8b-9c74-475d-9d84-b8378b5a4ced" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?wsdl" />
+    <MetadataFile FileName="ClientAuthService2.xsd" MetadataType="Schema" ID="ad1cd9d1-b8a6-47c9-877d-b5d2e89c3a40" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ClientAuthService.disco" MetadataType="Disco" ID="6b8d7a71-ecd0-4749-b3fe-afda63261efa" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?disco" />
+    <MetadataFile FileName="ClientAuthService3.xsd" MetadataType="Schema" ID="5a78a282-04b9-483e-83a6-ffa71ef6d69c" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ClientAuthService4.xsd" MetadataType="Schema" ID="c12ce5ad-f8b6-4246-8b29-93317768c39a" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ClientAuthService5.xsd" MetadataType="Schema" ID="957334eb-d107-4e53-9436-db01ff7251df" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

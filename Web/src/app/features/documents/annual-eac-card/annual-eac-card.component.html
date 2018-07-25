@@ -1,0 +1,117 @@
+
+
+<!-- <video width="400" controls>
+        <source src="rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video> -->
+
+
+<ng-container *ngIf="EACTables != null &&  EACTables.length > 0">
+    <div class="accordionAccount" id="ConfirmationIncome">
+        <h2 class="accHeadWidth">
+            Effective Annual Costs
+        </h2>
+        <div>
+            <ng-container *ngFor="let eacDT of EACTables">
+                <ng-container *ngIf="eacDT[0].gen_ContractNumber != ''">
+                    <p>
+                        <span style="font-weight:bold">{{eacDT[0].gen_EntityDescription}}
+                            <span> (</span> {{eacDT[0].gen_ContractNumber}}
+                            <span>)</span>
+                        </span>
+                    </p>
+                </ng-container>
+
+                <ng-container *ngIf="eacDT[0].gen_IntroParagraphs != ''">
+                    <p>{{eacDT[0].gen_IntroParagraphs}}</p>
+                </ng-container>
+
+                <table id="docTable2" style="width: 99%; margin:0 auto">
+                    <thead>
+                        <tr>
+                            <ng-container *ngFor="let dataColumn of getTableColumns(eacDT[0],false)">
+                                <ng-container *ngIf="dataColumn != 'Impact of Charges'">
+                                    <th style="text-align: center" *ngIf="dataColumn == 'Maturity'">10 Years</th>
+                                    <th style="text-align: center" *ngIf="dataColumn != 'Maturity'">{{dataColumn}}</th>
+                                </ng-container>
+                                <ng-container *ngIf="dataColumn == 'Impact of Charges'">
+                                    <th style="text-align: center" *ngIf="dataColumn != 'Maturity'">{{dataColumn}}</th>
+                                </ng-container>
+                            </ng-container>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let eacDR of eacDT; let dataRow = index">
+                            <tr>
+                                <ng-container *ngFor="let dataColumn of getTableColumns(eacDT[0],true)">
+                                    <ng-container *ngIf="dataRow > 0">
+                                        <ng-container *ngIf="checkIfCommentExist(eacDT,dataColumn,eacDR) == 1; then showComment; else showNoComment">
+                                        </ng-container>
+                                        <ng-template #showComment>
+                                            <td>{{eacDR[dataColumn]}}
+                                                <sup>{{commentNumber}}</sup>
+                                            </td>
+                                        </ng-template>
+                                        <ng-template #showNoComment>
+                                            <ng-container *ngIf="checkIfNumber(eacDR[dataColumn]); then showDecimal; else showNotDecimal">
+                                            </ng-container>
+                                            <ng-template #showDecimal>
+                                                <td>{{eacDR[dataColumn] | number:'1.2-2'}}</td>
+                                            </ng-template>
+                                            <ng-template #showNotDecimal>
+                                                <td>{{eacDR[dataColumn]}}</td>
+                                            </ng-template>
+                                        </ng-template>
+                                    </ng-container>
+                                </ng-container>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+
+                <br />
+
+                <p style="font-weight:bold">NOTES</p>
+
+                <ng-container *ngIf="eacDT[0]['gen_Comments'] != ''">
+                    <p>
+                        <span style="font-size:smaller">{{replaceAll(eacDT[0]["gen_Comments"],'@','')}}</span>
+                    </p>
+                </ng-container>
+
+                <ng-container *ngIf="eacDT[0]['gen_Comments_InvestmentManagementCharges'] != ''">
+                    <p>
+                        <sup>{{investment}}
+                            <span>.</span>{{replaceAll(eacDT[0]["gen_Comments_InvestmentManagementCharges"],'@','')}}</sup>
+                    </p>
+                </ng-container>
+
+                <ng-container *ngIf="eacDT[0]['gen_Comments_AdviceCharges'] != ''">
+                    <p>
+                        <sup>{{advise}}
+                            <span>.</span>{{replaceAll(eacDT[0]["gen_Comments_AdviceCharges"],'@','')}}</sup>
+                    </p>
+                </ng-container>
+
+                <ng-container *ngIf="eacDT[0]['gen_Comments_AdministrationCharges'] != ''">
+                    <p>
+                        <sup>{{administration}}
+                            <span>.</span>{{replaceAll(eacDT[0]["gen_Comments_AdministrationCharges"],'@','')}}</sup>
+                    </p>
+                </ng-container>
+                <ng-container *ngIf="eacDT[0]['gen_Comments_OtherCharges'] != ''">
+                    <p>
+                        <sup>{{other}}
+                            <span>.</span>{{replaceAll(eacDT[0]["gen_Comments_OtherCharges"],'@','')}}</sup>
+                    </p>
+                </ng-container>
+
+                <app-annual-feesummary-card  [contractNumber]="eacDT[0].gen_ContractNumber" ></app-annual-feesummary-card>
+
+            </ng-container>
+        </div>
+    </div>
+    
+
+
+</ng-container>

@@ -1,0 +1,37 @@
+<app-menu (change)="routeChange($event)" [ngClass]="menuServ.showMenu == true ?  'appMenuShow' : 'appMenuHide' "></app-menu>
+<div id="header" class="ui-header-fixed ui-bar-b" style="clear:both;font-family:Georgia !important;">
+    <div style="display:inline;float:left;width:15%;">
+        <label class="ui-btn" style="height:100%;background-color:#1d1d1d;">
+            <a (click)="toggleMenu()" class="ico_toggle" rel="external" style="clear:both;float:left"></a>
+            <span class="smallText"></span>
+        </label>
+        <br />
+    </div>
+    <div style="display:inline;float:left;width:70%;">
+        <label class="ui-btn" style="background-color:#1d1d1d;color:white;text-transform: uppercase;font-family:Georgia !important;">My Secure Zone</label>
+        <label class="ui-btn" style="background-color:#1d1d1d;color:white;font-size:x-small;padding:0;font-family:Georgia !important;">ver 1.0.0</label>
+    </div>
+    <div style="display:inline;float:left;width:15%;">
+    </div>
+    <div   style="clear:both;height:15px; font-family:Georgia !important;z-index: 9999;background-color: #1d1d1d;color:white;opacity: 0.4">
+            <span style="float:left;font-size:x-small;text-transform: capitalize " *ngIf="menuServ.breadCrumb != ''"> Navigation : {{menuServ.breadCrumb}} </span>
+    </div>
+</div>
+
+
+<div id="panel" style="padding-top:0" (click)="closeMenu()" >
+    <router-outlet></router-outlet>
+</div>
+
+
+<div id="footer" class="ui-footer-fixed ui-bar-b" style="clear:both;height:30px; font-family:Georgia !important;z-index: 9999;">
+    <div style="display:inline;float:left;width:15%;border: solid medium white;height:27px">
+
+    </div>
+    <div style="display:inline;float:left;width:70%;border: solid medium white;height:27px; text-align: center">
+            &copy;Copyright Citadel 
+    </div>
+    <div style="display:inline;float:left;width:15%;border: solid medium white;height:27px">
+            
+    </div>
+</div>

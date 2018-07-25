@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Citadel.Framework.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Citadel.Framework.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="EntityBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DbBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityBase" nillable="true" type="tns:EntityBase" />
+  <xs:complexType name="DbBase">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="DbBase" nillable="true" type="tns:DbBase" />
+</xs:schema>

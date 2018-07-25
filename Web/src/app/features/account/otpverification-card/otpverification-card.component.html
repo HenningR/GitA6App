@@ -1,0 +1,19 @@
+<div class="row otpCls">
+  <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+    OTP VERIFICATION
+  </div>
+
+  <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 spacingRow">
+      <span>{{otpMessage}}</span>
+  </div>
+
+  <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 spacingRow">
+    <input type="text" placeholder="OTP CONFIRMATION" [(ngModel)]="otpValue"  class="otpInput"/>
+  </div>
+
+  <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 spacingRow" >
+      <input type="button" (click)="Cancel()" name="action" value="CANCEL" class="btn btn-primary" style="float:right" />
+      <input type="button" (click)="Resend(1)" name="action" value="RESEND" class="btn btn-primary" style="float:right" [disabled]="disableButtons"/>
+      <input type="button" (click)="Validate()" name="action" value="VALIDATE" class="btn btn-primary" style="float:right" [disabled]="disableButtons"/>
+  </div>
+</div>

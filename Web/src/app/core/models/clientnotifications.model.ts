@@ -1,0 +1,23 @@
+export class ClientNotificationModel{
+    PartyNotificationID?:string;
+    RefPartyNotificationBaseID?:string;
+    RefPartyNotificationID?:string;
+    RefPartyNotificationLevel?:number;
+    PartyNotificationCategoryL?:number;
+    PartyNotificationCategory?:string;
+    DateSent?:Date;
+    Subject?:string;
+    Message?:string;
+    PartyNotificationStatusL?:number;
+    PartyNotificationStatus?:string;
+    PartyNotificationTypeL?:number;
+    StampDate?:Date;
+    StampStaff?:string;
+    StampStaffID?:number;
+    DisclaimerRequired?:boolean;
+    DisclaimerAction?:string;
+    SharedTnCID?:string;
+    DisclaimerActive?:boolean;
+    PartyID?:string;
+    AnyChildStatusUnread?:boolean;
+}

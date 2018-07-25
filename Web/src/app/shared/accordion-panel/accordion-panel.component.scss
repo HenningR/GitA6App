@@ -1,0 +1,110 @@
+@import '../../../mysecurezoneframework';
+$color-accordion-accent: $color-citadel-heading;
+$color-heading-hover: $color-citadel-lightergrey;
+$color-background: $color-citadel-lightestgrey;
+
+@mixin heading-border() {
+  border-bottom-width: thin;
+  border-bottom-style: solid;
+  border-bottom-color: $color-divider-line;
+}
+
+:host {
+  width: 100%;
+}
+
+.header {
+    user-select: none;
+    min-height: 2em; // font-family: RobotoRegular, Helvetica, Arial, sans-serif;
+    //border: thin rgba(0, 0, 0, 0.08) solid;
+    @include heading-border();
+    //display: flex;
+    //flex-direction: row;
+    text-transform: uppercase;
+  }
+  
+  .header strong {
+    margin: 8px;
+    flex-grow: 1;
+    align-self: stretch;
+  }
+  
+  .header-no-content {
+    color: $color-standard-text; // background-color: white;
+    // border: thin rgba(0, 0, 0, 0.08) solid;
+  }
+  
+  .header-normal {
+    background-color: $color-citadel-anthracite;
+    color: white; // background-color: white;
+  }
+
+  .header-sub {
+    background-color:$color-citadel-orange; 
+  }
+
+  .header-sub:hover {
+    // padding: 8px;
+    // color: $color-accordion-accent;
+    background-color:$color-citadel-orange; 
+  }
+
+  .header-normal:hover {
+    // padding: 8px;
+    // color: $color-accordion-accent;
+    color: white;
+    background-color: $color-citadel-anthracite;//$color-heading-hover;
+  }
+  
+  .header-expanded {
+    color: $color-standard-text; // background-color: #f6f6f6;
+    // border-bottom-width: thick;
+  }
+  
+  .header-selected {
+    color: white;
+    background-color: $color-citadel-anthracite;//$color-accordion-accent;
+  }
+  
+  .header-selected:hover {
+    color: white;
+    background-color: $color-citadel-anthracite;//$color-accordion-accent;
+  }
+  
+
+  .header-subselected {
+    color: white;
+    background-color: lightseagreen;
+  }
+  
+  .header-subselected:hover {
+    color: white;
+    background-color: lightseagreen;
+  }
+
+  
+
+
+  .panel-content {
+    color: $color-standard-text; //background-color: $color-background;
+    height: 0; // max-height: 0;
+    overflow: hidden; // transition: max-height 0.3s ease-in-out;
+  }
+  
+  .panel-content-expanded {
+    height: auto;
+    border-top-style: none;
+  }
+  
+  .panel-content-expanded-raised {
+    padding: 4px;
+    border: thin solid $color-divider-line;
+  }
+  
+  .expander {
+    // float: right;
+    width: 1em;
+    height: 1em;
+    margin: 8px;
+    color: $color-standard-text;
+  }

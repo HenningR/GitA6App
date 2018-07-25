@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fff93fa2-b37a-41ec-8d7c-7434c23a1965" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ClientService.xsd" MetadataType="Schema" ID="6debd2dd-f27c-41a3-b887-e3e5c6df8c94" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ClientService1.xsd" MetadataType="Schema" ID="f548a615-8691-464c-b3a4-9e37db878947" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ClientService.wsdl" MetadataType="Wsdl" ID="14056dee-4bfe-49ad-b03b-cb5b479448b0" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?wsdl" />
+    <MetadataFile FileName="ClientService2.xsd" MetadataType="Schema" ID="a534ac6e-e5ea-43d6-a60d-ff99aba6ed33" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd6" />
+    <MetadataFile FileName="ClientService3.xsd" MetadataType="Schema" ID="38433536-8493-4784-9e58-9a217cd101e6" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ClientService4.xsd" MetadataType="Schema" ID="4f8f3d3a-fc26-432e-968a-7905c6cb378f" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd8" />
+    <MetadataFile FileName="ClientService5.xsd" MetadataType="Schema" ID="4de06531-e451-4a74-968b-ccf9263a3b88" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd7" />
+    <MetadataFile FileName="ClientService.disco" MetadataType="Disco" ID="092a3dd5-9100-4a9c-9efb-4a922af4068d" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?disco" />
+    <MetadataFile FileName="ClientService6.xsd" MetadataType="Schema" ID="9cc5e8da-ba02-4828-96b9-f21a592b78a0" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ClientService7.xsd" MetadataType="Schema" ID="12abc955-3aa6-491a-ae14-4ad13843d7cf" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ClientService8.xsd" MetadataType="Schema" ID="4110c04d-557f-4fa2-a608-328116ebcc3d" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd9" />
+    <MetadataFile FileName="ClientService9.xsd" MetadataType="Schema" ID="336aed82-4027-4248-8c44-8477ba3cd189" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

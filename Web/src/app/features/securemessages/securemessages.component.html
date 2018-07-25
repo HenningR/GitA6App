@@ -1,0 +1,124 @@
+<div class="row" *ngIf="!secureMessage.show" style=" padding-top: 10px">
+    <app-information></app-information>
+
+    <div *ngIf="!showArchived">
+        <h1 style="font-size: large;font-weight: bold;text-align: center">ALL MESSAGES</h1>
+    </div>
+    <div *ngIf="showArchived">
+        <h1 style="font-size: large;font-weight: bold;text-align: center">ARCHIVED MESSAGES</h1>
+    </div>
+</div>
+
+
+<div class="row" *ngIf="!secureMessage.show" style="border-bottom: solid thin; padding-bottom: 10px; padding-top: 30px">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <a (click)="requestSecureChat()" style="float: left; font-size:x-small">Request Secure Chat</a>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div *ngIf="!showArchived">
+            <a (click)="getArchivedClientMessages()" style="float: right; font-size:x-small">Archived Messages</a>
+        </div>
+        <div *ngIf="showArchived">
+            <a (click)="getBaseClientMessages()" style="float: right; font-size:x-small">All Messages</a>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngFor="let item of this.clientMessages">
+    <div class="row" *ngIf="!secureMessage.show" style="padding-top: 20px">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" (click)="getSubClientMessages(item.PartyNotificationID,item.Subject)">
+
+            <figure class="figure">
+
+                <div *ngIf="item.AnyChildStatusUnread == true">
+                    <img src="../../../assets/message.png" alt="Note" width="100%" height="auto" class="figure-img img-fluid rounded">
+                </div>
+                <div *ngIf="item.AnyChildStatusUnread == false">
+                    <img src="../../../assets/openMessage.png" alt="Note" width="100%" height="auto" class="figure-img img-fluid rounded">
+                </div>
+
+                <div *ngIf="showArchived == true && item.PartyNotificationStatusL == 9">
+                    <img src="../../../assets/openMessage.png" alt="Note" width="100%" height="auto" class="figure-img img-fluid rounded">
+                </div> 
+
+                <figcaption class="figure-caption" style="text-align: center">
+
+                </figcaption>
+            </figure>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" (click)="getSubClientMessages(item.PartyNotificationID,item.Subject)">
+            <div>
+                <span style="font-size: large;font-weight: bold">{{item.Subject}}</span>
+                <span style="font-size: x-small;float: right;">{{item.DateSent | date :'dd/MM/yyyy'}}</span>
+
+            </div>
+            <!-- <div style="font-size: x-small;max-width:100%;height:10px">
+                <span [innerHTML]="getSafeHTMLCount(item.Message,20)"></span> 
+            </div>-->
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" style="border-bottom: solid thin lightgray; padding-bottom: 10px;">
+            <div *ngIf="!showArchived">
+                <a (click)="archiveMessage(item.PartyNotificationID)" style="float: right;padding: 0;">
+                    <span class="glyphicon glyphicon-briefcase"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+
+
+
+<ng-container *ngFor="let item of this.clientSubMessages">
+    <div class="row" *ngIf="secureMessage.show" style="padding-top: 30px">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+
+            <figure class="figure">
+                <figcaption class="figure-caption" style="text-align: center">
+                    <div *ngIf="item.StampStaffID == 1100;then showClient; else showAdvisor"></div>
+                    <ng-template #showClient>
+                        <img src="../../../assets/client.png" alt="Note" width="100%" height="auto" class="figure-img img-fluid rounded">
+                    </ng-template>
+                    <ng-template #showAdvisor>
+                        <img src="../../../assets/Person.png" alt="Note" width="100%" height="auto" class="figure-img img-fluid rounded">
+                    </ng-template>
+
+                </figcaption>
+            </figure>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style=" border-bottom: solid thin lightgray;">
+            <div>
+                <span [innerHTML]="getSafeHTML(item.Message)"></span>
+
+            </div>
+            <div style="font-size: x-small; float: right">{{item.DateSent | date :'dd/MM/yyyy hh:mm'}}</div>
+        </div>
+    </div>
+
+</ng-container>
+<div class="textScrollPos" *ngIf="secureMessage.show" style="padding-bottom:30px"></div>
+
+<div id="footer" #textFooter *ngIf="secureMessage.show" class="ui-footer-fixed ui-bar-b" style="clear:both;bottom:30px;min-height:auto; font-family:Georgia !important;z-index: 9999;">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="input-group">
+
+                <textarea *ngIf="!showArchived" #textAreaRef [(ngModel)]="newMessage" placeholder="Type a message" style="width: 100%;min-height: 30px;height:auto;color:black; background-color: white;"
+                    rows="1" (scroll)="autosize()"></textarea>
+                <span *ngIf="!showArchived" class="input-group-addon" style="background-color: black;border:none;">
+                    <a (click)="sentMessage()">
+                        <span class="glyphicon glyphicon-send"></span>
+                    </a>
+                </span>
+                <span class="input-group-addon" style="background-color: black;border:none;">
+                    <a (click)="closeMessage()">
+                        <span class="glyphicon glyphicon-circle-arrow-left"></span>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

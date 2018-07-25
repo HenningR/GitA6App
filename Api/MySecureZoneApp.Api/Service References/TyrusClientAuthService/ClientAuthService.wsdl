@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClientAuthService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd2" />
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Citadel.Web.TyrusServices" />
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClientAuthService_testIwinSMS_InputMessage">
+    <wsdl:part name="parameters" element="tns:testIwinSMS" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_testIwinSMS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:testIwinSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_AuthenticateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUser" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_AuthenticateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_ValidADUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidADUser" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_ValidADUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidADUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetStaffUserID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffUserID" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetStaffUserID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_SetStaffSharingResults_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetStaffSharingResults" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_SetStaffSharingResults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetStaffSharingResultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetClientName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientName" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetClientName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetClientDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientDetails" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetClientDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_RegisterClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterClient" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_RegisterClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_ConfirmRegisterClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmRegisterClient" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_ConfirmRegisterClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmRegisterClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_getClientEmails_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientEmails" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_getClientEmails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientEmailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_getClientTelephones_InputMessage">
+    <wsdl:part name="parameters" element="tns:getClientTelephones" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_getClientTelephones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClientTelephonesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetClientEMailAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientEMailAddress" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetClientEMailAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientEMailAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_ResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_ResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_ChangeUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUsername" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_ChangeUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_WebRegistrationExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:WebRegistrationExist" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_WebRegistrationExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WebRegistrationExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetActiveWebcomponents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveWebcomponents" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetActiveWebcomponents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveWebcomponentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetExternalWebCredentialMapping_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExternalWebCredentialMapping" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetExternalWebCredentialMapping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExternalWebCredentialMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_getAccountJurisdictions_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAccountJurisdictions" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_getAccountJurisdictions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAccountJurisdictionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_getCitationType_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCitationType" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_getCitationType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getCitationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_DecryptClientInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:DecryptClientInfo" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_DecryptClientInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DecryptClientInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_switchUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:switchUser" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_switchUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:switchUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetStaffSalutation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffSalutation" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetStaffSalutation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStaffSalutationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetListRelatedAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListRelatedAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetListRelatedAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListRelatedAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_hasActiveInvestments_InputMessage">
+    <wsdl:part name="parameters" element="tns:hasActiveInvestments" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_hasActiveInvestments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:hasActiveInvestmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_AllLinkedActiveInvestments_InputMessage">
+    <wsdl:part name="parameters" element="tns:AllLinkedActiveInvestments" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_AllLinkedActiveInvestments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AllLinkedActiveInvestmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_hasClientGotValidatedWill_InputMessage">
+    <wsdl:part name="parameters" element="tns:hasClientGotValidatedWill" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_hasClientGotValidatedWill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:hasClientGotValidatedWillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetSecureZoneClientDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecureZoneClientDetails" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetSecureZoneClientDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecureZoneClientDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetSecureZoneClientGrid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecureZoneClientGrid" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetSecureZoneClientGrid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSecureZoneClientGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_UpdatePartyWebRegistrationStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePartyWebRegistrationStatus" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_UpdatePartyWebRegistrationStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePartyWebRegistrationStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_Activate_ResetWebRegisteration_InputMessage">
+    <wsdl:part name="parameters" element="tns:Activate_ResetWebRegisteration" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_Activate_ResetWebRegisteration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Activate_ResetWebRegisterationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_Deactivate_WebRegisteration_InputMessage">
+    <wsdl:part name="parameters" element="tns:Deactivate_WebRegisteration" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_Deactivate_WebRegisteration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Deactivate_WebRegisterationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetMySecureZoneActivities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMySecureZoneActivities" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_GetMySecureZoneActivities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMySecureZoneActivitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_AddWebActivity_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddWebActivity" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_AddWebActivity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddWebActivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_EncryptClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:EncryptClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_EncryptClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EncryptClientIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_DecryptClientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DecryptClientID" />
+  </wsdl:message>
+  <wsdl:message name="IClientAuthService_DecryptClientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DecryptClientIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClientAuthService">
+    <wsdl:operation name="testIwinSMS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/testIwinSMS" message="tns:IClientAuthService_testIwinSMS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/testIwinSMSResponse" message="tns:IClientAuthService_testIwinSMS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/AuthenticateUser" message="tns:IClientAuthService_AuthenticateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/AuthenticateUserResponse" message="tns:IClientAuthService_AuthenticateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidADUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/ValidADUser" message="tns:IClientAuthService_ValidADUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/ValidADUserResponse" message="tns:IClientAuthService_ValidADUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffUserID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/GetStaffUserID" message="tns:IClientAuthService_GetStaffUserID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/GetStaffUserIDResponse" message="tns:IClientAuthService_GetStaffUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetStaffSharingResults">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/SetStaffSharingResults" message="tns:IClientAuthService_SetStaffSharingResults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/SetStaffSharingResultsResponse" message="tns:IClientAuthService_SetStaffSharingResults_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/GetClientName" message="tns:IClientAuthService_GetClientName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/GetClientNameResponse" message="tns:IClientAuthService_GetClientName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/GetClientDetails" message="tns:IClientAuthService_GetClientDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/GetClientDetailsResponse" message="tns:IClientAuthService_GetClientDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/RegisterClient" message="tns:IClientAuthService_RegisterClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/RegisterClientResponse" message="tns:IClientAuthService_RegisterClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmRegisterClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/ConfirmRegisterClient" message="tns:IClientAuthService_ConfirmRegisterClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/ConfirmRegisterClientResponse" message="tns:IClientAuthService_ConfirmRegisterClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientEmails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/getClientEmails" message="tns:IClientAuthService_getClientEmails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/getClientEmailsResponse" message="tns:IClientAuthService_getClientEmails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getClientTelephones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/getClientTelephones" message="tns:IClientAuthService_getClientTelephones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/getClientTelephonesResponse" message="tns:IClientAuthService_getClientTelephones_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientEMailAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/GetClientEMailAddress" message="tns:IClientAuthService_GetClientEMailAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/GetClientEMailAddressResponse" message="tns:IClientAuthService_GetClientEMailAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/ResetPassword" message="tns:IClientAuthService_ResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/ResetPasswordResponse" message="tns:IClientAuthService_ResetPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/ChangePassword" message="tns:IClientAuthService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/ChangePasswordResponse" message="tns:IClientAuthService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/ChangeUsername" message="tns:IClientAuthService_ChangeUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/ChangeUsernameResponse" message="tns:IClientAuthService_ChangeUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WebRegistrationExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/WebRegistrationExist" message="tns:IClientAuthService_WebRegistrationExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/WebRegistrationExistResponse" message="tns:IClientAuthService_WebRegistrationExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveWebcomponents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/GetActiveWebcomponents" message="tns:IClientAuthService_GetActiveWebcomponents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/GetActiveWebcomponentsResponse" message="tns:IClientAuthService_GetActiveWebcomponents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExternalWebCredentialMapping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/GetExternalWebCredentialMapping" message="tns:IClientAuthService_GetExternalWebCredentialMapping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/GetExternalWebCredentialMappingResponse" message="tns:IClientAuthService_GetExternalWebCredentialMapping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccountJurisdictions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/getAccountJurisdictions" message="tns:IClientAuthService_getAccountJurisdictions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/getAccountJurisdictionsResponse" message="tns:IClientAuthService_getAccountJurisdictions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCitationType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/getCitationType" message="tns:IClientAuthService_getCitationType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/getCitationTypeResponse" message="tns:IClientAuthService_getCitationType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DecryptClientInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/DecryptClientInfo" message="tns:IClientAuthService_DecryptClientInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/DecryptClientInfoResponse" message="tns:IClientAuthService_DecryptClientInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="switchUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/switchUser" message="tns:IClientAuthService_switchUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/switchUserResponse" message="tns:IClientAuthService_switchUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffSalutation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/GetStaffSalutation" message="tns:IClientAuthService_GetStaffSalutation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/GetStaffSalutationResponse" message="tns:IClientAuthService_GetStaffSalutation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListRelatedAccounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/GetListRelatedAccounts" message="tns:IClientAuthService_GetListRelatedAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/GetListRelatedAccountsResponse" message="tns:IClientAuthService_GetListRelatedAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="hasActiveInvestments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/hasActiveInvestments" message="tns:IClientAuthService_hasActiveInvestments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/hasActiveInvestmentsResponse" message="tns:IClientAuthService_hasActiveInvestments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AllLinkedActiveInvestments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/AllLinkedActiveInvestments" message="tns:IClientAuthService_AllLinkedActiveInvestments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/AllLinkedActiveInvestmentsResponse" message="tns:IClientAuthService_AllLinkedActiveInvestments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="hasClientGotValidatedWill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/hasClientGotValidatedWill" message="tns:IClientAuthService_hasClientGotValidatedWill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/hasClientGotValidatedWillResponse" message="tns:IClientAuthService_hasClientGotValidatedWill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecureZoneClientDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/GetSecureZoneClientDetails" message="tns:IClientAuthService_GetSecureZoneClientDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/GetSecureZoneClientDetailsResponse" message="tns:IClientAuthService_GetSecureZoneClientDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecureZoneClientGrid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/GetSecureZoneClientGrid" message="tns:IClientAuthService_GetSecureZoneClientGrid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/GetSecureZoneClientGridResponse" message="tns:IClientAuthService_GetSecureZoneClientGrid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePartyWebRegistrationStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/UpdatePartyWebRegistrationStatus" message="tns:IClientAuthService_UpdatePartyWebRegistrationStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/UpdatePartyWebRegistrationStatusResponse" message="tns:IClientAuthService_UpdatePartyWebRegistrationStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Activate_ResetWebRegisteration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/Activate_ResetWebRegisteration" message="tns:IClientAuthService_Activate_ResetWebRegisteration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/Activate_ResetWebRegisterationResponse" message="tns:IClientAuthService_Activate_ResetWebRegisteration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Deactivate_WebRegisteration">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/Deactivate_WebRegisteration" message="tns:IClientAuthService_Deactivate_WebRegisteration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/Deactivate_WebRegisterationResponse" message="tns:IClientAuthService_Deactivate_WebRegisteration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMySecureZoneActivities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/GetMySecureZoneActivities" message="tns:IClientAuthService_GetMySecureZoneActivities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/GetMySecureZoneActivitiesResponse" message="tns:IClientAuthService_GetMySecureZoneActivities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddWebActivity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/AddWebActivity" message="tns:IClientAuthService_AddWebActivity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/AddWebActivityResponse" message="tns:IClientAuthService_AddWebActivity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/EncryptClientID" message="tns:IClientAuthService_EncryptClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/EncryptClientIDResponse" message="tns:IClientAuthService_EncryptClientID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DecryptClientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientAuthService/DecryptClientID" message="tns:IClientAuthService_DecryptClientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientAuthService/DecryptClientIDResponse" message="tns:IClientAuthService_DecryptClientID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IClientAuthService" type="tns:IClientAuthService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="testIwinSMS">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/testIwinSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidADUser">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/ValidADUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffUserID">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/GetStaffUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetStaffSharingResults">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/SetStaffSharingResults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientName">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/GetClientName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientDetails">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/GetClientDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterClient">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/RegisterClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmRegisterClient">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/ConfirmRegisterClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientEmails">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/getClientEmails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getClientTelephones">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/getClientTelephones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientEMailAddress">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/GetClientEMailAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/ResetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUsername">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/ChangeUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebRegistrationExist">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/WebRegistrationExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveWebcomponents">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/GetActiveWebcomponents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExternalWebCredentialMapping">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/GetExternalWebCredentialMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountJurisdictions">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/getAccountJurisdictions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCitationType">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/getCitationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecryptClientInfo">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/DecryptClientInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="switchUser">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/switchUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaffSalutation">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/GetStaffSalutation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListRelatedAccounts">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/GetListRelatedAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hasActiveInvestments">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/hasActiveInvestments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllLinkedActiveInvestments">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/AllLinkedActiveInvestments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hasClientGotValidatedWill">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/hasClientGotValidatedWill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecureZoneClientDetails">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/GetSecureZoneClientDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecureZoneClientGrid">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/GetSecureZoneClientGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePartyWebRegistrationStatus">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/UpdatePartyWebRegistrationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Activate_ResetWebRegisteration">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/Activate_ResetWebRegisteration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Deactivate_WebRegisteration">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/Deactivate_WebRegisteration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMySecureZoneActivities">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/GetMySecureZoneActivities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWebActivity">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/AddWebActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/EncryptClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecryptClientID">
+      <soap:operation soapAction="http://tempuri.org/IClientAuthService/DecryptClientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientAuthService">
+    <wsdl:port name="BasicHttpBinding_IClientAuthService" binding="tns:BasicHttpBinding_IClientAuthService">
+      <soap:address location="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,149 @@
+<div class="accordionAccount" id="Statements">
+  <h2 class="accHeadWidth">
+    STATEMENTS, PRODUCT INFORMATION AND MINIMUM DISCLOSURE DOCUMENTS
+  </h2>
+  <div>
+    <div>By clicking on the below scrolls, you have access to the following:</div>
+    <div>
+      <ul style="list-style-type:circle !important; list-style-position: inside;">
+        <li>Your full Peregrine Administration Services (PAS) statement. This reflects your investment history, transactions,
+          fees, interest, unrealised capital gain, and more.</li>
+        <li>The product information document detailing the product and its main features.</li>
+        <li>A minimum disclosure document with all the details of the various funds in which you are invested. </li>
+      </ul>
+    </div>
+
+
+    <app-information></app-information>
+    <table id="docTable2" style="display:block">
+      <thead>
+        <tr>
+          <th style="width: 20%; text-align: left">
+            Product Name
+          </th>
+          <th style="width: 10%; text-align: center;">
+            Product/Fund Sheet
+          </th>
+          <th style="width: 10%; text-align: center">
+            Supplier Statement
+          </th>
+          <th style="width: 15%; text-align: center">
+            Number
+          </th>
+          <th style="width: 15%; text-align: center">
+            Valuation Date
+          </th>
+          <th style="width: 15%; text-align: center">
+            Total Value
+          </th>
+          <th style="width: 15%; text-align: center">
+            Entities
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="7" style="background-color:#bfbfbf">PEREGRINE ADMINISTRATION SERVICES</td>
+        </tr>
+        <ng-container *ngFor="let reportLevel0Data of getSupplierLevel(0,'')">
+          <tr>
+            <td style="font-weight:bold ;background-color:#d9d9d9; text-align: left">{{reportLevel0Data.ProductName}}</td>
+            <td style="background-color:#d9d9d9" align="center">
+              <div *ngIf="reportLevel0Data['ProductID'] != 0">
+                <span style="display: inline-block;vertical-align:middle">
+                    
+
+                  <button name="viewDocument" [value]="reportLevel0Data.ProductID" (click)="getProductStatement(reportLevel0Data.ProductID,reportLevel0Data.DateTo,reportLevel0Data.AccountID)" style="width: 90px; background: none; border: none">
+                    <div style="width:40px;display:inline-block">
+                      <img src="../../../../assets/download.png" alt="None">
+                    </div>
+                  </button>
+                </span>
+              </div>
+            </td>
+            <td style="background-color:#d9d9d9" align="center">
+              <div *ngIf="reportLevel0Data.ProductID != 0">
+                <span style="display: inline-block;vertical-align:middle">
+
+
+
+                  <button name="viewDocument" [value]="reportLevel0Data.InvestmentID" (click)="getSupplierStatement(reportLevel0Data.InvestmentID,reportLevel0Data.ContractNumber,getDateFrom(),getDateTo(),reportLevel0Data.AccountID,reportLevel0Data.DateTo,reportLevel0Data.ProductID)" style="width: 90px; background: none; border: none">
+                    <div style="width:40px;display:inline-block">
+                      <div style="float:left">
+                        <img src="../../../../assets/download.png" alt="None">
+                      </div>
+                      <div style="float:right; color:black; font-size:xx-small">
+                        1
+                      </div>
+                    </div>
+                  </button>
+                </span>
+              </div>
+            </td>
+            <td style="background-color:#d9d9d9">{{reportLevel0Data.ContractNumber}}</td>
+            <td style="background-color:#d9d9d9;text-align:center">{{reportLevel0Data.ValuationDate | date :'yyyy-MM-dd'}}</td>
+            <td style="background-color:#d9d9d9" align="right">{{reportLevel0Data.TotalValue | currency:'R ':'symbol':'4.2-2'}}</td>
+            <td style="background-color:#d9d9d9;text-align:left" align="left">{{reportLevel0Data.Entities}}</td>
+          </tr>
+
+          <!-- Insert here  -->
+          <ng-container *ngFor="let reportLevel1Data of getSupplierLevel(1,reportLevel0Data.InvestmentID)">
+            <tr>
+              <td style="background-color:#ffffff">{{reportLevel1Data.ProductName}}</td>
+              <td style="background-color:#ffffff" align="center">
+                <div *ngIf="reportLevel1Data.FFSProductID != 0">
+                  <span style="display: inline-block;vertical-align:middle">
+                    <button name="viewDocument" [value]="reportLevel1Data.FFSProductID" (click)="getFundFactSheet(reportLevel1Data.FFSProductID,reportLevel1Data.ProductName)" style="width: 90px; background: none; border: none">
+                      <div style="width:40px;display:inline-block">
+                        <img src="../../../../assets/download.png" alt="None">
+                      </div>
+                    </button>
+                  </span>
+
+                </div>
+              </td>
+              <td style="background-color:#ffffff"></td>
+              <td style="background-color:#ffffff"></td>
+              <td style="background-color:#ffffff"></td>
+              <td style="background-color:#ffffff" align="right">{{reportLevel1Data.TotalValue | currency:'R ':'symbol':'4.2-2'}}</td>
+              <td style="background-color:#ffffff"></td>
+            </tr>
+            <tr *ngFor="let reportLevel2Data of getSupplierLevel(2,reportLevel1Data.InvestmentID)">
+              <td style="background-color:#ffffff">{{reportLevel2Data.ProductName}}</td>
+              <td style="background-color:#ffffff" align="center">
+                <div *ngIf="reportLevel2Data.FFSProductID != 0">
+                  <span style="display: inline-block;vertical-align:middle">
+                    <button name="viewDocument" [value]="reportLevel2Data.FFSProductID" (click)="getFundFactSheet(reportLevel2Data.FFSProductID,reportLevel2Data.ProductName)" style="width: 90px; background: none; border: none">
+                      <div style="width:40px;display:inline-block">
+                        <img src="../../../../assets/download.png" alt="None">
+                      </div>
+                    </button>
+                  </span>
+                </div>
+              </td>
+              <td style="background-color:#ffffff"></td>
+              <td style="background-color:#ffffff"></td>
+              <td style="background-color:#ffffff"></td>
+              <td style="background-color:#ffffff" align="right">{{reportLevel2Data.TotalValue | currency:'R ':'symbol':'4.2-2'}}</td>
+              <td style="background-color:#ffffff"></td>
+            </tr>
+          </ng-container>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="supplierStatementExists()">
+     <br />
+      <p>
+        <sup>
+          1.
+          <span>
+            It is possible in some cases that the fund value might not reflect the statement value as it may be affected by a transaction
+            in progress. Should you require validated values or have any queries, please contact your
+            <a style="font-family: Century Gothic" (click)="changeRoute('/advisor')">advisor.</a>
+          </span>
+        </sup>
+      </p> 
+  </div>
+</div>

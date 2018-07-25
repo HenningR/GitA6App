@@ -1,0 +1,127 @@
+<div *ngIf="showAllReports">
+  <div *ngFor="let report of webReports" style="padding-left:5px">
+    <app-accordion-panel [title]="report.ReportDescription" [subPanel]="false" [additionaltitle]="report.EffectiveDate | date :'yyyy-MM-dd'"
+      [expanded]="false" flat="true">
+      <div class="row" style="border-bottom: solid thin lightslategrey">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+          <span>Account : {{report.AccountNumber }}</span>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+          <a (click)="openReport(report)" style="float: left;padding: 0;">
+            <span class="	glyphicon glyphicon-list-alt"></span>
+          </a>
+        </div>
+      </div>
+    </app-accordion-panel>
+  </div>
+</div>
+
+
+
+<div *ngIf="showReportDetail">
+    <div class="row"></div>
+    
+    <span [innerHTML]="anualReportData.reportHeading"></span>
+
+    <!-- @*Annual Heading section*@ -->
+    <!-- @*-------------------------------------------------------------------------------------*@ -->
+    <div style="font-family:'Century Gothic';font-size:15.4px">
+      <!-- @Html.Action("_HTMLPartContent", "Content", new { key = "Report_AnnualHeading", area = "" }) -->
+    </div>
+    <!-- @*-------------------------------------------------------------------------------------*@ -->
+
+    <!-- @*Report top section*@ -->
+    <!-- @*-------------------------------------------------------------------------------------*@ -->
+    <div class="accordionAccount" id="AddressDetail">
+      <h2 class="accHeadWidth">
+        ADDRESS DETAIL
+      </h2>
+
+      <div>
+          <span [innerHTML]="anualReportData.reportAddressDetail"></span>
+
+
+      </div>
+    </div>
+
+    <!-- @*Graph of DataTable for Investment Projection*@ -->
+    <!-- @*-------------------------------------------------------------------------------------*@ -->
+    <div class="accordionAccount" id="RetirementGraph">
+      <h2 class="accHeadWidth">
+        CURRENT PERSONAL SITUATION
+      </h2>
+
+      <div>
+          <span [innerHTML]="anualReportData.reportPersonalSituation"></span>
+
+
+        <!-- @if (ViewBag.GraphImage != null)
+        {
+        <p>The graph below is intended to show the possible future investment values for the indicated investment time horizons according to your age, in order to illustrate the impact of different contributions and withdrawals as indicated by you.</p>
+          <img src="data:image;base64,@System.Convert.ToBase64String(ViewBag.GraphImage)" width="984" height="586" />
+          <p style="text-align: center;">
+            <sup>
+              <span >
+                Last finalized date @ViewBag.ClientAnalysisLastDate
+              </span>
+            </sup>
+
+          </p>
+        } -->
+
+        <p>We hereby confirm that there were no material changes to your contributions, withdrawals and financial situation over the past year. Should anything have changed, please contact <a href="/Area/MyAdvisor">@ViewBag.AdvisorName.</a></p>
+      </div>
+    </div>
+
+    <!-- @*-------------------------------------------------------------------------------------*@ -->
+    <!-- @*CONFIRMATION OF INCOME*@ -->
+    <!-- @*-------------------------------------------------------------------------------------*@ -->
+
+    <app-annual-confirmation-card [confirmationTable]="anualDataTable2"></app-annual-confirmation-card>
+    
+
+    <!-- @*-------------------------------------------------------------------------------------*@ -->
+    <!-- @*Statements and Fact Sheets*@ -->
+    <!-- @*-------------------------------------------------------------------------------------*@ -->
+
+    <app-annual-supplier-card [supplierTable]="anualDataTable3" [WebReport]="anualDataTable4"></app-annual-supplier-card>
+
+    <!-- @*-------------------------------------------------------------------------------------*@
+    @*Effective Annual Costs Section*@ -->
+    <!-- @*----------------------------------------------------------------------------*@ -->
+
+    <app-annual-eac-card [WebReport]="anualDataTable4">
+
+       
+
+    </app-annual-eac-card>
+    
+
+    <!-- @*-------------------------------------------------------------------------------------*@ -->
+    <!-- @*WILL DETAILS section*@
+    @*-------------------------------------------------------------------------------------*@ -->
+    <div class="accordionAccount" id="AddressDetail">
+      <h2 class="accHeadWidth">
+        WILL DETAILS
+      </h2>
+
+      <div>
+        <!-- @Html.Raw(reportWillDetails) -->
+      </div>
+    </div>
+    <!-- @*-------------------------------------------------------------------------------------*@
+
+    @*-------------------------------------------------------------------------------------*@
+    @*A LAST WORD section*@
+    @*-------------------------------------------------------------------------------------*@ -->
+    <div class="accordionAccount" id="AddressDetail">
+      <h2 class="accHeadWidth">
+        A LAST WORD
+      </h2>
+
+      <div>
+        <!-- @Html.Action("_HTMLPartContent", "Content", new { key = "Report_AnnualFooter", area = "" }) -->
+      </div>
+    </div>
+    <!-- @*-------------------------------------------------------------------------------------*@ -->
+  </div>

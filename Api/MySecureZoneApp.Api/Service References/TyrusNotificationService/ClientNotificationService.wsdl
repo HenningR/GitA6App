@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClientNotificationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ClientNotificationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ClientNotificationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClientNotificationService_SendNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendNotification" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_SendNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_CreateOTP_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOTP" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_CreateOTP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_SendClientPortfolioUpdateRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendClientPortfolioUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_SendClientPortfolioUpdateRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendClientPortfolioUpdateRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_CheckOTP_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOTP" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_CheckOTP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_GetNotifications_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNotifications" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_GetNotifications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNotificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_UpdateNotificationStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNotificationStatus" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_UpdateNotificationStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNotificationStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_GetNotificationTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNotificationTypes" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_GetNotificationTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNotificationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_GetSharedTnC_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSharedTnC" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_GetSharedTnC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSharedTnCResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_UpdateNotificationType_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNotificationType" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_UpdateNotificationType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNotificationTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_SendMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMail" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_SendMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_switchUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:switchUser" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_switchUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:switchUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_hasStaffSetupDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:hasStaffSetupDevice" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_hasStaffSetupDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:hasStaffSetupDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_RequestSecureChat_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestSecureChat" />
+  </wsdl:message>
+  <wsdl:message name="IClientNotificationService_RequestSecureChat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RequestSecureChatResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClientNotificationService">
+    <wsdl:operation name="SendNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/SendNotification" message="tns:IClientNotificationService_SendNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/SendNotificationResponse" message="tns:IClientNotificationService_SendNotification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOTP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/CreateOTP" message="tns:IClientNotificationService_CreateOTP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/CreateOTPResponse" message="tns:IClientNotificationService_CreateOTP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendClientPortfolioUpdateRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/SendClientPortfolioUpdateRequest" message="tns:IClientNotificationService_SendClientPortfolioUpdateRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/SendClientPortfolioUpdateRequestResponse" message="tns:IClientNotificationService_SendClientPortfolioUpdateRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOTP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/CheckOTP" message="tns:IClientNotificationService_CheckOTP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/CheckOTPResponse" message="tns:IClientNotificationService_CheckOTP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotifications">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/GetNotifications" message="tns:IClientNotificationService_GetNotifications_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/GetNotificationsResponse" message="tns:IClientNotificationService_GetNotifications_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNotificationStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/UpdateNotificationStatus" message="tns:IClientNotificationService_UpdateNotificationStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/UpdateNotificationStatusResponse" message="tns:IClientNotificationService_UpdateNotificationStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/GetNotificationTypes" message="tns:IClientNotificationService_GetNotificationTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/GetNotificationTypesResponse" message="tns:IClientNotificationService_GetNotificationTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSharedTnC">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/GetSharedTnC" message="tns:IClientNotificationService_GetSharedTnC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/GetSharedTnCResponse" message="tns:IClientNotificationService_GetSharedTnC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNotificationType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/UpdateNotificationType" message="tns:IClientNotificationService_UpdateNotificationType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/UpdateNotificationTypeResponse" message="tns:IClientNotificationService_UpdateNotificationType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/SendMail" message="tns:IClientNotificationService_SendMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/SendMailResponse" message="tns:IClientNotificationService_SendMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="switchUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/switchUser" message="tns:IClientNotificationService_switchUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/switchUserResponse" message="tns:IClientNotificationService_switchUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="hasStaffSetupDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/hasStaffSetupDevice" message="tns:IClientNotificationService_hasStaffSetupDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/hasStaffSetupDeviceResponse" message="tns:IClientNotificationService_hasStaffSetupDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestSecureChat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientNotificationService/RequestSecureChat" message="tns:IClientNotificationService_RequestSecureChat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientNotificationService/RequestSecureChatResponse" message="tns:IClientNotificationService_RequestSecureChat_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IClientNotificationService" type="tns:IClientNotificationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendNotification">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/SendNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOTP">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/CreateOTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendClientPortfolioUpdateRequest">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/SendClientPortfolioUpdateRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOTP">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/CheckOTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotifications">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/GetNotifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNotificationStatus">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/UpdateNotificationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationTypes">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/GetNotificationTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSharedTnC">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/GetSharedTnC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNotificationType">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/UpdateNotificationType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/SendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="switchUser">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/switchUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hasStaffSetupDevice">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/hasStaffSetupDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestSecureChat">
+      <soap:operation soapAction="http://tempuri.org/IClientNotificationService/RequestSecureChat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientNotificationService">
+    <wsdl:port name="BasicHttpBinding_IClientNotificationService" binding="tns:BasicHttpBinding_IClientNotificationService">
+      <soap:address location="http://srv12webdev:8006/Citadel.Web.Service/ClientNotificationService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

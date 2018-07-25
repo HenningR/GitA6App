@@ -1,0 +1,824 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MySecureZoneApp_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="ActivityLogID" />
+          </Key>
+          <Property Name="ActivityLogID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SessionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" />
+          <Property Name="Controller" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Action" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="StampDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AdminMaintenance">
+          <Key>
+            <PropertyRef Name="AdminMaintenanceID" />
+          </Key>
+          <Property Name="AdminMaintenanceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MaintenanceTypeL" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="MaintenanceDescription" Type="nvarchar(max)" />
+          <Property Name="StampDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AdminUser">
+          <Key>
+            <PropertyRef Name="AdminUserID" />
+          </Key>
+          <Property Name="AdminUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varbinary(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="StampDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentMapping">
+          <Key>
+            <PropertyRef Name="DocMapID" />
+          </Key>
+          <Property Name="DocMapID" Type="int" Nullable="false" />
+          <Property Name="TyrusCategoryL" Type="smallint" Nullable="false" />
+          <Property Name="TyrusTypeL" Type="smallint" Nullable="false" />
+          <Property Name="MarketingTitleL" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HTMLPart">
+          <Key>
+            <PropertyRef Name="HTMLPartID" />
+          </Key>
+          <Property Name="HTMLPartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HTMLPartKey" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HTML" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SiteTableLinkID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lkpDocumentMarketingType">
+          <Key>
+            <PropertyRef Name="LID" />
+          </Key>
+          <Property Name="LID" Type="smallint" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="400" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lkpLinkTables">
+          <Key>
+            <PropertyRef Name="LID" />
+          </Key>
+          <Property Name="LID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TableName" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lkpMaintenanceType">
+          <Key>
+            <PropertyRef Name="LID" />
+          </Key>
+          <Property Name="LID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lkpSite">
+          <Key>
+            <PropertyRef Name="LID" />
+          </Key>
+          <Property Name="LID" Type="int" Nullable="false" />
+          <Property Name="SiteName" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="UrlAddress" Type="varchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="MenuItem">
+          <Key>
+            <PropertyRef Name="MenuItemID" />
+          </Key>
+          <Property Name="MenuItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentMenuItemID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Action" Type="varchar" MaxLength="50" />
+          <Property Name="Controller" Type="varchar" MaxLength="50" />
+          <Property Name="Area" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Editable" Type="bit" Nullable="false" />
+          <Property Name="SortIndex" Type="int" Nullable="false" />
+          <Property Name="Secure" Type="bit" Nullable="false" />
+          <Property Name="Admin" Type="bit" Nullable="false" />
+          <Property Name="SiteTableLinkID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MySecureZone_Live_Test.dbo.SiteTableLink' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SiteTableLink">
+          <Key>
+            <PropertyRef Name="SiteTableLinkID" />
+            <PropertyRef Name="SiteL" />
+            <PropertyRef Name="LinkTableL" />
+            <PropertyRef Name="Use" />
+          </Key>
+          <Property Name="SiteTableLinkID" Type="int" Nullable="false" />
+          <Property Name="SiteL" Type="int" Nullable="false" />
+          <Property Name="LinkTableL" Type="int" Nullable="false" />
+          <Property Name="Use" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Survey">
+          <Key>
+            <PropertyRef Name="SurveyID" />
+          </Key>
+          <Property Name="SurveyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SurveyAnswer">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AnswerSetID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SurveyID" Type="int" Nullable="false" />
+          <Property Name="Question" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Answer" Type="varchar(max)" Nullable="false" />
+          <Property Name="DateStamp" Type="datetime" Nullable="false" />
+          <Property Name="Region" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SurveyHTML">
+          <Key>
+            <PropertyRef Name="SurveyContentID" />
+          </Key>
+          <Property Name="SurveyContentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SurveyID" Type="int" Nullable="false" />
+          <Property Name="Language" Type="int" Nullable="false" />
+          <Property Name="HTML" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserSession">
+          <Key>
+            <PropertyRef Name="UserSessionID" />
+          </Key>
+          <Property Name="UserSessionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="SessionID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="StampDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DocumentMapping_lkpDocumentMarketingType">
+          <End Role="lkpDocumentMarketingType" Type="Self.lkpDocumentMarketingType" Multiplicity="1" />
+          <End Role="DocumentMapping" Type="Self.DocumentMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lkpDocumentMarketingType">
+              <PropertyRef Name="LID" />
+            </Principal>
+            <Dependent Role="DocumentMapping">
+              <PropertyRef Name="MarketingTitleL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaintenanceTypeL">
+          <End Role="lkpMaintenanceType" Type="Self.lkpMaintenanceType" Multiplicity="1" />
+          <End Role="AdminMaintenance" Type="Self.AdminMaintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lkpMaintenanceType">
+              <PropertyRef Name="LID" />
+            </Principal>
+            <Dependent Role="AdminMaintenance">
+              <PropertyRef Name="MaintenanceTypeL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuItem_MenuItem">
+          <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="0..1" />
+          <End Role="MenuItem1" Type="Self.MenuItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItem">
+              <PropertyRef Name="MenuItemID" />
+            </Principal>
+            <Dependent Role="MenuItem1">
+              <PropertyRef Name="ParentMenuItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SurveyHTML_SurveyHTML">
+          <End Role="SurveyHTML" Type="Self.SurveyHTML" Multiplicity="1" />
+          <End Role="SurveyHTML1" Type="Self.SurveyHTML" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SurveyHTML">
+              <PropertyRef Name="SurveyContentID" />
+            </Principal>
+            <Dependent Role="SurveyHTML1">
+              <PropertyRef Name="SurveyContentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fnAuthenticateAdminUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Password" Type="varchar(max)" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="AdminUserID" Type="uniqueidentifier" />
+                <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+                <Property Name="Password" Type="varbinary(max)" />
+                <Property Name="IsActive" Type="bit" />
+                <Property Name="StampDate" Type="datetime" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="fnSiteTableLinkDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SiteID" Type="int" Mode="In" />
+          <Parameter Name="LinkTableID" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ID" Type="int" />
+                <Property Name="TableName" Type="varchar" MaxLength="100" />
+                <Property Name="SiteTableLinkID" Type="int" />
+                <Property Name="SiteName" Type="varchar" MaxLength="400" />
+                <Property Name="DESCRIPTION" Type="varchar(max)" />
+                <Property Name="Use" Type="bit" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="fnSiteTableLinkID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SiteColID" Type="varchar(max)" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="SiteTableLinkID" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="fnSplit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="String" Type="varchar(max)" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <EntityContainer Name="MySecureZoneApp_ModelStoreContainer">
+          <EntitySet Name="ActivityLog" EntityType="Self.ActivityLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminMaintenance" EntityType="Self.AdminMaintenance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AdminUser" EntityType="Self.AdminUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentMapping" EntityType="Self.DocumentMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HTMLPart" EntityType="Self.HTMLPart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lkpDocumentMarketingType" EntityType="Self.lkpDocumentMarketingType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lkpLinkTables" EntityType="Self.lkpLinkTables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lkpMaintenanceType" EntityType="Self.lkpMaintenanceType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lkpSite" EntityType="Self.lkpSite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuItem" EntityType="Self.MenuItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Survey" EntityType="Self.Survey" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SurveyAnswer" EntityType="Self.SurveyAnswer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SurveyHTML" EntityType="Self.SurveyHTML" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSession" EntityType="Self.UserSession" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiteTableLink" EntityType="Self.SiteTableLink" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SiteTableLink].[SiteTableLinkID] AS [SiteTableLinkID], 
+    [SiteTableLink].[SiteL] AS [SiteL], 
+    [SiteTableLink].[LinkTableL] AS [LinkTableL], 
+    [SiteTableLink].[Use] AS [Use]
+    FROM [dbo].[SiteTableLink] AS [SiteTableLink]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_DocumentMapping_lkpDocumentMarketingType" Association="Self.FK_DocumentMapping_lkpDocumentMarketingType">
+            <End Role="lkpDocumentMarketingType" EntitySet="lkpDocumentMarketingType" />
+            <End Role="DocumentMapping" EntitySet="DocumentMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaintenanceTypeL" Association="Self.FK_MaintenanceTypeL">
+            <End Role="lkpMaintenanceType" EntitySet="lkpMaintenanceType" />
+            <End Role="AdminMaintenance" EntitySet="AdminMaintenance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuItem_MenuItem" Association="Self.FK_MenuItem_MenuItem">
+            <End Role="MenuItem" EntitySet="MenuItem" />
+            <End Role="MenuItem1" EntitySet="MenuItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SurveyHTML_SurveyHTML" Association="Self.FK_SurveyHTML_SurveyHTML">
+            <End Role="SurveyHTML" EntitySet="SurveyHTML" />
+            <End Role="SurveyHTML1" EntitySet="SurveyHTML" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MySecureZoneApp_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="fnAuthenticateAdminUser_Result">
+          <Property Name="AdminUserID" Type="Guid" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="StampDate" Type="DateTime" />
+        </ComplexType>
+        <ComplexType Name="fnSiteTableLinkDetail_Result">
+          <Property Name="ID" Type="Int32" />
+          <Property Name="TableName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SiteTableLinkID" Type="Int32" />
+          <Property Name="SiteName" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Use" Type="Boolean" />
+        </ComplexType>
+        <ComplexType Name="fnSiteTableLinkID_Result">
+          <Property Name="SiteTableLinkID" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="fnSplit_Result">
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="ActivityLogID" />
+          </Key>
+          <Property Name="ActivityLogID" Type="Guid" Nullable="false" />
+          <Property Name="SessionID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="Guid" />
+          <Property Name="Controller" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Action" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StampDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="AdminMaintenance">
+          <Key>
+            <PropertyRef Name="AdminMaintenanceID" />
+          </Key>
+          <Property Name="AdminMaintenanceID" Type="Guid" Nullable="false" />
+          <Property Name="MaintenanceTypeL" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="MaintenanceDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StampDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="lkpMaintenanceType" Relationship="Self.FK_MaintenanceTypeL" FromRole="AdminMaintenance" ToRole="lkpMaintenanceType" />
+        </EntityType>
+        <EntityType Name="AdminUser">
+          <Key>
+            <PropertyRef Name="AdminUserID" />
+          </Key>
+          <Property Name="AdminUserID" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="StampDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="DocumentMapping">
+          <Key>
+            <PropertyRef Name="DocMapID" />
+          </Key>
+          <Property Name="DocMapID" Type="Int32" Nullable="false" />
+          <Property Name="TyrusCategoryL" Type="Int16" Nullable="false" />
+          <Property Name="TyrusTypeL" Type="Int16" Nullable="false" />
+          <Property Name="MarketingTitleL" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="lkpDocumentMarketingType" Relationship="Self.FK_DocumentMapping_lkpDocumentMarketingType" FromRole="DocumentMapping" ToRole="lkpDocumentMarketingType" />
+        </EntityType>
+        <EntityType Name="HTMLPart">
+          <Key>
+            <PropertyRef Name="HTMLPartID" />
+          </Key>
+          <Property Name="HTMLPartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HTMLPartKey" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HTML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SiteTableLinkID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lkpDocumentMarketingType">
+          <Key>
+            <PropertyRef Name="LID" />
+          </Key>
+          <Property Name="LID" Type="Int16" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DocumentMappings" Relationship="Self.FK_DocumentMapping_lkpDocumentMarketingType" FromRole="lkpDocumentMarketingType" ToRole="DocumentMapping" />
+        </EntityType>
+        <EntityType Name="lkpLinkTable">
+          <Key>
+            <PropertyRef Name="LID" />
+          </Key>
+          <Property Name="LID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TableName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lkpMaintenanceType">
+          <Key>
+            <PropertyRef Name="LID" />
+          </Key>
+          <Property Name="LID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="AdminMaintenances" Relationship="Self.FK_MaintenanceTypeL" FromRole="lkpMaintenanceType" ToRole="AdminMaintenance" />
+        </EntityType>
+        <EntityType Name="lkpSite">
+          <Key>
+            <PropertyRef Name="LID" />
+          </Key>
+          <Property Name="LID" Type="Int32" Nullable="false" />
+          <Property Name="SiteName" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UrlAddress" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MenuItem">
+          <Key>
+            <PropertyRef Name="MenuItemID" />
+          </Key>
+          <Property Name="MenuItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentMenuItemID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Editable" Type="Boolean" Nullable="false" />
+          <Property Name="SortIndex" Type="Int32" Nullable="false" />
+          <Property Name="Secure" Type="Boolean" Nullable="false" />
+          <Property Name="Admin" Type="Boolean" Nullable="false" />
+          <Property Name="SiteTableLinkID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MenuItem1" Relationship="Self.FK_MenuItem_MenuItem" FromRole="MenuItem" ToRole="MenuItem1" />
+          <NavigationProperty Name="MenuItem2" Relationship="Self.FK_MenuItem_MenuItem" FromRole="MenuItem1" ToRole="MenuItem" />
+        </EntityType>
+        <EntityType Name="Survey">
+          <Key>
+            <PropertyRef Name="SurveyID" />
+          </Key>
+          <Property Name="SurveyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SurveyAnswer">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="Guid" Nullable="false" />
+          <Property Name="AnswerSetID" Type="Guid" Nullable="false" />
+          <Property Name="SurveyID" Type="Int32" Nullable="false" />
+          <Property Name="Question" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Region" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SurveyHTML">
+          <Key>
+            <PropertyRef Name="SurveyContentID" />
+          </Key>
+          <Property Name="SurveyContentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SurveyID" Type="Int32" Nullable="false" />
+          <Property Name="Language" Type="Int32" Nullable="false" />
+          <Property Name="HTML" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SurveyHTML1" Relationship="Self.FK_SurveyHTML_SurveyHTML" FromRole="SurveyHTML" ToRole="SurveyHTML1" />
+          <NavigationProperty Name="SurveyHTML2" Relationship="Self.FK_SurveyHTML_SurveyHTML" FromRole="SurveyHTML1" ToRole="SurveyHTML" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserSession">
+          <Key>
+            <PropertyRef Name="UserSessionID" />
+          </Key>
+          <Property Name="UserSessionID" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SessionID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StampDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="SiteTableLink">
+          <Key>
+            <PropertyRef Name="SiteTableLinkID" />
+            <PropertyRef Name="SiteL" />
+            <PropertyRef Name="LinkTableL" />
+            <PropertyRef Name="Use" />
+          </Key>
+          <Property Name="SiteTableLinkID" Type="Int32" Nullable="false" />
+          <Property Name="SiteL" Type="Int32" Nullable="false" />
+          <Property Name="LinkTableL" Type="Int32" Nullable="false" />
+          <Property Name="Use" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_MaintenanceTypeL">
+          <End Role="lkpMaintenanceType" Type="Self.lkpMaintenanceType" Multiplicity="1" />
+          <End Role="AdminMaintenance" Type="Self.AdminMaintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lkpMaintenanceType">
+              <PropertyRef Name="LID" />
+            </Principal>
+            <Dependent Role="AdminMaintenance">
+              <PropertyRef Name="MaintenanceTypeL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentMapping_lkpDocumentMarketingType">
+          <End Role="lkpDocumentMarketingType" Type="Self.lkpDocumentMarketingType" Multiplicity="1" />
+          <End Role="DocumentMapping" Type="Self.DocumentMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lkpDocumentMarketingType">
+              <PropertyRef Name="LID" />
+            </Principal>
+            <Dependent Role="DocumentMapping">
+              <PropertyRef Name="MarketingTitleL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MenuItem_MenuItem">
+          <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="0..1" />
+          <End Role="MenuItem1" Type="Self.MenuItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuItem">
+              <PropertyRef Name="MenuItemID" />
+            </Principal>
+            <Dependent Role="MenuItem1">
+              <PropertyRef Name="ParentMenuItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SurveyHTML_SurveyHTML">
+          <End Role="SurveyHTML" Type="Self.SurveyHTML" Multiplicity="1" />
+          <End Role="SurveyHTML1" Type="Self.SurveyHTML" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SurveyHTML">
+              <PropertyRef Name="SurveyContentID" />
+            </Principal>
+            <Dependent Role="SurveyHTML1">
+              <PropertyRef Name="SurveyContentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MySecureZone_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActivityLogs" EntityType="Self.ActivityLog" />
+          <EntitySet Name="AdminMaintenances" EntityType="Self.AdminMaintenance" />
+          <EntitySet Name="AdminUsers" EntityType="Self.AdminUser" />
+          <EntitySet Name="DocumentMappings" EntityType="Self.DocumentMapping" />
+          <EntitySet Name="HTMLParts" EntityType="Self.HTMLPart" />
+          <EntitySet Name="lkpDocumentMarketingTypes" EntityType="Self.lkpDocumentMarketingType" />
+          <EntitySet Name="lkpLinkTables" EntityType="Self.lkpLinkTable" />
+          <EntitySet Name="lkpMaintenanceTypes" EntityType="Self.lkpMaintenanceType" />
+          <EntitySet Name="lkpSites" EntityType="Self.lkpSite" />
+          <EntitySet Name="MenuItems" EntityType="Self.MenuItem" />
+          <EntitySet Name="Surveys" EntityType="Self.Survey" />
+          <EntitySet Name="SurveyAnswers" EntityType="Self.SurveyAnswer" />
+          <EntitySet Name="SurveyHTMLs" EntityType="Self.SurveyHTML" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="UserSessions" EntityType="Self.UserSession" />
+          <EntitySet Name="SiteTableLinks" EntityType="Self.SiteTableLink" />
+          <AssociationSet Name="FK_MaintenanceTypeL" Association="Self.FK_MaintenanceTypeL">
+            <End Role="lkpMaintenanceType" EntitySet="lkpMaintenanceTypes" />
+            <End Role="AdminMaintenance" EntitySet="AdminMaintenances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentMapping_lkpDocumentMarketingType" Association="Self.FK_DocumentMapping_lkpDocumentMarketingType">
+            <End Role="lkpDocumentMarketingType" EntitySet="lkpDocumentMarketingTypes" />
+            <End Role="DocumentMapping" EntitySet="DocumentMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MenuItem_MenuItem" Association="Self.FK_MenuItem_MenuItem">
+            <End Role="MenuItem" EntitySet="MenuItems" />
+            <End Role="MenuItem1" EntitySet="MenuItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SurveyHTML_SurveyHTML" Association="Self.FK_SurveyHTML_SurveyHTML">
+            <End Role="SurveyHTML" EntitySet="SurveyHTMLs" />
+            <End Role="SurveyHTML1" EntitySet="SurveyHTMLs" />
+          </AssociationSet>
+          <FunctionImport Name="fnAuthenticateAdminUser" IsComposable="true" ReturnType="Collection(MySecureZoneApp_Model.fnAuthenticateAdminUser_Result)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="fnSiteTableLinkDetail" IsComposable="true" ReturnType="Collection(MySecureZoneApp_Model.fnSiteTableLinkDetail_Result)">
+            <Parameter Name="SiteID" Mode="In" Type="Int32" />
+            <Parameter Name="LinkTableID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="fnSiteTableLinkID" IsComposable="true" ReturnType="Collection(MySecureZoneApp_Model.fnSiteTableLinkID_Result)">
+            <Parameter Name="SiteColID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="fnSplit" IsComposable="true" ReturnType="Collection(MySecureZoneApp_Model.fnSplit_Result)">
+            <Parameter Name="String" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MySecureZoneApp_ModelStoreContainer" CdmEntityContainer="MySecureZone_Entities">
+          <EntitySetMapping Name="ActivityLogs">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.ActivityLog">
+              <MappingFragment StoreEntitySet="ActivityLog">
+                <ScalarProperty Name="ActivityLogID" ColumnName="ActivityLogID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="StampDate" ColumnName="StampDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminMaintenances">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.AdminMaintenance">
+              <MappingFragment StoreEntitySet="AdminMaintenance">
+                <ScalarProperty Name="AdminMaintenanceID" ColumnName="AdminMaintenanceID" />
+                <ScalarProperty Name="MaintenanceTypeL" ColumnName="MaintenanceTypeL" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="MaintenanceDescription" ColumnName="MaintenanceDescription" />
+                <ScalarProperty Name="StampDate" ColumnName="StampDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminUsers">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.AdminUser">
+              <MappingFragment StoreEntitySet="AdminUser">
+                <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StampDate" ColumnName="StampDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentMappings">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.DocumentMapping">
+              <MappingFragment StoreEntitySet="DocumentMapping">
+                <ScalarProperty Name="DocMapID" ColumnName="DocMapID" />
+                <ScalarProperty Name="TyrusCategoryL" ColumnName="TyrusCategoryL" />
+                <ScalarProperty Name="TyrusTypeL" ColumnName="TyrusTypeL" />
+                <ScalarProperty Name="MarketingTitleL" ColumnName="MarketingTitleL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HTMLParts">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.HTMLPart">
+              <MappingFragment StoreEntitySet="HTMLPart">
+                <ScalarProperty Name="HTMLPartID" ColumnName="HTMLPartID" />
+                <ScalarProperty Name="HTMLPartKey" ColumnName="HTMLPartKey" />
+                <ScalarProperty Name="HTML" ColumnName="HTML" />
+                <ScalarProperty Name="SiteTableLinkID" ColumnName="SiteTableLinkID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lkpDocumentMarketingTypes">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.lkpDocumentMarketingType">
+              <MappingFragment StoreEntitySet="lkpDocumentMarketingType">
+                <ScalarProperty Name="LID" ColumnName="LID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lkpLinkTables">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.lkpLinkTable">
+              <MappingFragment StoreEntitySet="lkpLinkTables">
+                <ScalarProperty Name="LID" ColumnName="LID" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lkpMaintenanceTypes">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.lkpMaintenanceType">
+              <MappingFragment StoreEntitySet="lkpMaintenanceType">
+                <ScalarProperty Name="LID" ColumnName="LID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lkpSites">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.lkpSite">
+              <MappingFragment StoreEntitySet="lkpSite">
+                <ScalarProperty Name="LID" ColumnName="LID" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="UrlAddress" ColumnName="UrlAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuItems">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.MenuItem">
+              <MappingFragment StoreEntitySet="MenuItem">
+                <ScalarProperty Name="MenuItemID" ColumnName="MenuItemID" />
+                <ScalarProperty Name="ParentMenuItemID" ColumnName="ParentMenuItemID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Editable" ColumnName="Editable" />
+                <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+                <ScalarProperty Name="Secure" ColumnName="Secure" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+                <ScalarProperty Name="SiteTableLinkID" ColumnName="SiteTableLinkID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Surveys">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.Survey">
+              <MappingFragment StoreEntitySet="Survey">
+                <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SurveyAnswers">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.SurveyAnswer">
+              <MappingFragment StoreEntitySet="SurveyAnswer">
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="AnswerSetID" ColumnName="AnswerSetID" />
+                <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SurveyHTMLs">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.SurveyHTML">
+              <MappingFragment StoreEntitySet="SurveyHTML">
+                <ScalarProperty Name="SurveyContentID" ColumnName="SurveyContentID" />
+                <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="HTML" ColumnName="HTML" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSessions">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.UserSession">
+              <MappingFragment StoreEntitySet="UserSession">
+                <ScalarProperty Name="UserSessionID" ColumnName="UserSessionID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="StampDate" ColumnName="StampDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiteTableLinks">
+            <EntityTypeMapping TypeName="MySecureZoneApp_Model.SiteTableLink">
+              <MappingFragment StoreEntitySet="SiteTableLink">
+                <ScalarProperty Name="SiteTableLinkID" ColumnName="SiteTableLinkID" />
+                <ScalarProperty Name="SiteL" ColumnName="SiteL" />
+                <ScalarProperty Name="LinkTableL" ColumnName="LinkTableL" />
+                <ScalarProperty Name="Use" ColumnName="Use" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="MySecureZoneApp_Model.Store.fnAuthenticateAdminUser" FunctionImportName="fnAuthenticateAdminUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MySecureZoneApp_Model.fnAuthenticateAdminUser_Result">
+                <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StampDate" ColumnName="StampDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="MySecureZoneApp_Model.Store.fnSiteTableLinkDetail" FunctionImportName="fnSiteTableLinkDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MySecureZoneApp_Model.fnSiteTableLinkDetail_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="SiteTableLinkID" ColumnName="SiteTableLinkID" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="Use" ColumnName="Use" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="MySecureZoneApp_Model.Store.fnSiteTableLinkID" FunctionImportName="fnSiteTableLinkID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MySecureZoneApp_Model.fnSiteTableLinkID_Result">
+                <ScalarProperty Name="SiteTableLinkID" ColumnName="SiteTableLinkID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="MySecureZoneApp_Model.Store.fnSplit" FunctionImportName="fnSplit">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MySecureZoneApp_Model.fnSplit_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

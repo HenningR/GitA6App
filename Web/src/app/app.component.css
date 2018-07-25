@@ -1,0 +1,214 @@
+.appMenuShow{
+    transform: translate3d(100%,0,0); 
+    -webkit-transition: width 4s; /* Safari */
+       transition: width 4s;
+
+   }
+   .appMenuHide{
+       transform: translate3d(0,0,0); 
+       -webkit-transition: width 4s; /* Safari */
+       transition: width 4s;
+
+   }
+   
+   
+   .example-container {
+       position: absolute;
+       top: 0;
+       bottom: 0;
+       left: 0;
+       right: 0;
+   
+     }
+   
+     #panel {
+       position: absolute;
+       background-color: #fff;
+       color:black;
+       top:85px;
+       left: 0;
+       right: 0;
+       height: auto;
+       padding: 50px;
+     }
+   
+   #header{
+       height:80px;
+   }
+   
+   
+   
+     .not-displayed {
+       display: none;
+     
+   }
+   
+   form {
+       border-bottom: 1px solid #ddd;
+       padding-bottom: 5px;
+   }
+   
+   #zip-code-input {
+       font-size: 25px;
+   }
+   
+   #get-weather-btn {
+       font-size: 22px;
+   }
+   
+   #title {
+       font-size: 16px;
+   }
+   
+   #summary {
+       font-size: 35px;
+   }
+   
+       #summary img {
+           float: right;
+       }
+   
+   #error-msg {
+       text-align: center;
+       margin-top: 50%;
+       font-weight: bold;
+   }
+   
+   
+   
+   
+   
+   
+   .noBorder {
+       border: 0px;
+       padding: 0;
+       margin: 0;
+       border-collapse: collapse;
+   }
+   
+   .imgCenter {
+       position: absolute;
+       margin: auto;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+   }
+   
+   .highlightedTab {
+       background-color: #1d1d1d;
+   }
+   
+   .customtable {
+       table-layout: fixed;
+       -webkit-box-shadow: 0 1px 2px #999999;
+       -ms-box-shadow: 0 1px 2px #999999;
+       box-shadow: 0 1px 2px #999999;
+       /*display: block;*/
+   }
+   
+       .customtable td {
+           overflow: hidden;
+           text-overflow: ellipsis;
+           word-wrap: break-word;
+       }
+   
+   
+       .customtable th {
+           background: #006a72;
+       }
+   
+   
+   
+       .customtable td + td {
+           border-left: 1px solid #eee;
+       }
+   
+       .customtable td, th {
+           border-bottom: 1px solid #eee;
+           background: #ddd;
+           color: #000;
+       }
+   
+   
+   /*a {
+     color: brown;
+     text-align:center;
+   
+       border-radius: 25px;
+       border: 1px solid #73AD21;
+       min-width:50px;
+   
+   }*/
+   
+   
+   .details-button {
+       background: linear-gradient(to bottom, #FFFFFF 0, #FAB149 2%, #F89406 100%) repeat scroll 0 0 transparent;
+       border: 1px solid #FAB149;
+       -ms-border-radius: 3px;
+       border-radius: 3px;
+       -webkit-box-shadow: 0 1px 2px #999999;
+       -ms-box-shadow: 0 1px 2px #999999;
+       box-shadow: 0 1px 2px #999999;
+       color: #FFFFFF;
+       cursor: pointer;
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+       font-size: 13px;
+       font-weight: bold;
+       -ms-text-shadow: 0 -1px #099FDF;
+       text-shadow: 0 -1px #099FDF;
+       margin: 4px;
+       min-width: 50px;
+       vertical-align: central;
+       align-items: center;
+       text-decoration: none;
+       font: menu;
+       display: inline-block;
+       text-align: center;
+       padding: 6px 0;
+   }
+   
+   .details-button-image {
+       background: linear-gradient(to bottom, #FFFFFF 0, #FAB149 2%, #F89406 100%) repeat scroll 0 0 transparent;
+       border: 1px solid #FAB149;
+       -ms-border-radius: 3px;
+       border-radius: 3px;
+       -webkit-box-shadow: 0 1px 2px #999999;
+       -ms-box-shadow: 0 1px 2px #999999;
+       box-shadow: 0 1px 2px #999999;
+       color: #FFFFFF;
+       cursor: pointer;
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+       font-size: 13px;
+       font-weight: bold;
+       -ms-text-shadow: 0 -1px #099FDF;
+       text-shadow: 0 -1px #099FDF;
+       margin: 4px;
+       min-width: 30px;
+       vertical-align: central;
+       align-items: center;
+       text-decoration: none;
+       font: menu;
+       display: inline-block;
+       text-align: center;
+       padding: 3px 0;
+   }
+   
+   textarea {
+       background: linear-gradient(to bottom, #FFFFFF 0, #ddd 2%, #ddd 100%) repeat scroll 0 0 transparent;
+   }
+   
+   .smallText {
+       color: white;
+       font-size: xx-small;
+   }
+   
+   .textShadow {
+       text-shadow: 1px 1px #FAB149;
+   }
+   
+   .boxsizingBorder {
+       -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+       box-sizing: border-box;
+   }

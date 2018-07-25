@@ -1,0 +1,193 @@
+<ng-container *ngIf="feeSummaryReportDS != null &&  feeSummaryReportDS.length > 0">
+    <ng-container *ngFor="let feeSummartDT of feeSummaryReportDS; let currentDTIdx = index">
+
+        <table id="docTable2" style="width: 99%; margin:0 auto">
+            <thead>
+                <ng-container *ngIf="feeSummaryReportDS.length > 4">
+
+                    <!-- Note Table -->
+                    <ng-container *ngFor="let feeSumNoteDR of feeSummaryReportDS[4]">
+
+                        <ng-container *ngIf="feeSumNoteDR['Comments_InvestmentManagementCharges'] != ''; then setProperty('investmentExists',true)">
+                 
+                        </ng-container>
+                        <ng-container *ngIf="feeSumNoteDR['Comments_AdviceCharges'] != ''; then setProperty('adviseExists',true) ">
+
+                        </ng-container>
+                        <ng-container *ngIf="feeSumNoteDR['Comments_AdministrationCharges'] != ''; then setProperty('administrationExists',true);">
+
+                        </ng-container>
+                        <ng-container *ngIf="feeSumNoteDR['Comments_OtherCharges'] != ''; then setProperty('otherExists',true);">
+
+                        </ng-container>
+
+                    </ng-container>
+                </ng-container>
+
+                <ng-container *ngFor="let feeSumHeaderTable of feeSummaryReportHeaderDS[currentDTIdx]">
+                    <ng-container *ngFor="let feeSumHeaderDR of feeSumHeaderTable; let nRow = index;">
+
+                        <ng-container *ngIf="nRow == 0">
+                            <p style="font-weight:bold">{{feeSumHeaderDR[0]}}</p>
+                        </ng-container>
+                        <tr>
+                            <ng-container *ngIf="getTableColumns(feeSumHeaderDR,true)">
+                            </ng-container>
+                            
+                            <ng-container *ngFor="let item of FeeSummaryTableColumns; let i = index;">
+                            <!-- <ng-container *ngFor="let i = 1; i < FeeSummaryTableColumns; i++"> -->
+
+                                <ng-container *ngIf="1==1;then setProperty('currentColumn',feeSumHeaderTable[i][item]);">
+                                </ng-container>
+
+                                
+
+                                <ng-container *ngIf="1==1;then setProperty('nextColumn','nxtCol');">
+                                </ng-container>
+
+
+                                <ng-container *ngIf="((i + 1) < (FeeSummaryTableColumns.length)); then setProperty('nextColumn', FeeSummaryTableColumns[i + 1][item]); ">
+                                </ng-container>
+
+                                cur{{currentColumn}}    
+                                next{{nextColumn}}    
+
+                                <ng-container *ngIf="nRow == 0">
+
+                                    <ng-container *ngIf="currentColumn == nextColumn">
+
+                                        <ng-container *ngIf="checkValueContains(item,'_AC')">
+                                            <th colspan="2" style="text-align:center">{{feeSumHeaderTable[i][item]}}</th>
+                                        </ng-container>
+                                        <ng-container *ngIf="checkValueContains(item,'_AR')">
+                                            <th colspan="2" style="text-align:right">{{feeSumHeaderTable[i][item]}}</th>
+                                        </ng-container>
+                                        <ng-container *ngIf="checkValueContains(item,'_AR') == false && checkValueContains(item,'_AC') == false">
+                                            <th colspan="2" style="text-align:left">{{feeSumHeaderTable[i][item]}}</th>
+                                        </ng-container>
+
+                                    </ng-container>
+                                    <ng-container *ngIf="currentColumn != nextColumn">
+
+                                        <ng-container *ngIf="checkValueContains(item,'_AC')">
+                                            <th colspan="2" style="text-align:center">{{feeSumHeaderTable[i][item]}}</th>
+                                        </ng-container>
+                                        <ng-container *ngIf="checkValueContains(item,'_AR')">
+                                            <th colspan="2" style="text-align:right">{{feeSumHeaderTable[i][item]}}</th>
+                                        </ng-container>
+                                        <ng-container *ngIf="checkValueContains(item,'_AR') == false && checkValueContains(item,'_AC') == false">
+                                            <th colspan="2" style="text-align:left">{{feeSumHeaderTable[i][item]}}</th>
+                                        </ng-container>
+
+                                    </ng-container>
+
+                                </ng-container>
+                                <ng-container *ngIf="1==1;then setProperty('previousColumn',currentColumn);">
+                                </ng-container>
+                            </ng-container>
+                        </tr>
+                    </ng-container>
+
+                </ng-container>
+            <tbody>
+                <ng-container *ngIf="feeSummaryReportHeaderDS.length > 0">
+
+
+                    <ng-container *ngIf="1==1;then setProperty('commentExist',0);"></ng-container>
+                    <ng-container *ngIf="1==1;then setProperty('commentNumber',1);"></ng-container>
+                   
+                        test{{feeSummartDT}}
+                    <ng-container *ngFor="let feeSumDR of feeSummartDT">
+                            here 2
+                        <tr>
+                            <ng-container *ngFor="let dataColumn of getTableColumns(feeSumDR,true)">
+
+                                    here 3
+                                <ng-container *ngIf="1==1;then setProperty('commentExist',0);"></ng-container>
+
+                                <ng-container *ngIf="feeSumDR[dataColumn] == 'Investment Management' && investmentExists; then setProperty('investment',commentNumber);">
+                                </ng-container>
+                                <ng-container *ngIf="feeSumDR[dataColumn] == 'Investment Management' && investmentExists; then setProperty('commentExist',1);"></ng-container>
+
+                                <ng-container *ngIf="feeSumDR[dataColumn] == 'Advice' && adviseExists; then setProperty('advise',commentNumber);">
+                                </ng-container>
+                                <ng-container *ngIf="feeSumDR[dataColumn] == 'Advice' && adviseExists; then setProperty('commentExist',1);"></ng-container>
+                                
+                                <ng-container *ngIf="feeSumDR[dataColumn] == 'Administration' && administrationExists; then setProperty('administration',commentNumber);">
+                                </ng-container>
+                                <ng-container *ngIf="feeSumDR[dataColumn] == 'Administration' && administrationExists; then setProperty('commentExist',1);"></ng-container>
+    
+                                <ng-container *ngIf="feeSumDR[dataColumn] == 'Other' && otherExists; then setProperty('other',commentNumber);">
+                                </ng-container>
+                                <ng-container *ngIf="feeSumDR[dataColumn] == 'Other' && otherExists; then setProperty('commentExist',1);"></ng-container>
+            
+
+                                <ng-container *ngIf="commentExist == 1">
+                                    <td>{{feeSumDR[dataColumn]}}
+                                        <sup>@commentNumber</sup>
+                                    </td>
+                
+                                    <ng-container *ngIf="1==1; then setProperty('commentNumber',commentNumber + 1);"></ng-container>
+                                </ng-container>
+                                <ng-container *ngIf="commentExist == 0">
+
+                                    <ng-container *ngIf="(checkValueContains(dataColumn,'Amount')) || (checkValueContains(dataColumn,'Contributions') && checkValueContains(dataColumn,'% of Contributions'))">
+                                        <td style="text-align:right">{{feeSumDR[dataColumn]}}</td>
+                                    </ng-container>
+                                    <ng-container *ngIf="checkValueContains(dataColumn,'%')">
+                                        <td style="text-align:center">{{feeSumDR[dataColumn]}}</td>
+                                    </ng-container>
+                                    <ng-container *ngIf="(checkValueContains(dataColumn,'Amount') == false) || (checkValueContains(dataColumn,'Contributions') == false && checkValueContains(dataColumn,'% of Contributions') == false)">
+                                        <td>{{feeSumDR[dataColumn]}}</td>
+                                    </ng-container>
+
+                                </ng-container>
+
+                            </ng-container>
+                        </tr>
+                    </ng-container>
+                </ng-container>
+            </tbody>
+        </table>
+
+
+        <!-- if (totalHeaderRows == 0 && feeSummartDT.Rows.Count > 0 && (investmentExists || adviseExists || administrationExists || otherExists))
+	   {
+		<p style="font-weight:bold">NOTES</p>
+
+		foreach (DataRow feeSumDR in feeSummartDT.Rows)
+		{
+			foreach (DataColumn dataColumn in feeSumDR.Table.Columns)
+			{
+				if (feeSumDR[dataColumn].ToString() != "")
+				{
+
+					if (dataColumn.ToString() == "Comments_InvestmentManagementCharges" && investmentExists)
+					{
+						<p><sup>@investment<span>.</span> @feeSumDR[dataColumn].ToString().Replace("@", "")</sup></p>
+					}
+					else if (dataColumn.ToString() == "Comments_AdviceCharges" && adviseExists)
+					{
+						<p><sup>@advise<span>.</span> @feeSumDR[dataColumn].ToString().Replace("@", "")</sup></p>
+					}
+					else if (dataColumn.ToString() == "Comments_AdministrationCharges" && administrationExists)
+					{
+						<p><sup>@administration<span>.</span> @feeSumDR[dataColumn].ToString().Replace("@", "")</sup></p>
+					}
+					else if (dataColumn.ToString() == "Comments_OtherCharges" && otherExists)
+					{
+						<p><sup>@other<span>.</span> @feeSumDR[dataColumn].ToString().Replace("@", "")</sup></p>
+					}
+					else
+					{
+						<p><sup>5<span>.</span> @feeSumDR[dataColumn].ToString().Replace("@", "")</sup></p>
+					}
+				}
+			}
+		}
+
+	    } -->
+        <br />
+
+    </ng-container>
+</ng-container>

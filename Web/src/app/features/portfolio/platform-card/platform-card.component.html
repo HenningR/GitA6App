@@ -1,0 +1,68 @@
+<div class="row row-centered" *ngIf="(currentAccount.AccountName | uppercase) != 'ALL ACCOUNTS'">
+  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+    <label for="userTitle">ACCOUNT START DATE</label>
+  </div>
+  <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+    <label for="userTitle">{{currentAccount.StartDate | date :'yyyy-MM-dd'}}</label>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="clear: both;">
+    <label for="userTitle">ACCOUNT CURRENCY</label>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+    <label for="userTitle">{{currentAccount.CurrencyDescription}}</label>
+  </div>
+</div>
+
+<div class="row row-centered">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-centered " style="padding-top: 10px">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <label for="userTitle">SELECT REPORT DATE</label>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <input type="date" class="dateInput" [ngModel]="card.reportDate | date :'yyyy-MM-dd'" (ngModelChange)="card.reportDate = $event"
+        />
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="clear: both;">
+        <label for="userTitle">SELECT CURRENCY</label>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <select [(ngModel)]="card.CurrencyL" class="passwordInput">
+          <option *ngFor="let item of coreServ.reportCurrencies" [value]="item.LID">{{item.LIDDescription}}</option>
+        </select>
+      </div>
+
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+        <label for="userTitle">INCLUDE RELATED ENTITIES</label>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <input type="checkbox" [(ngModel)]="card.includeRelatedEntities" />
+      </div>
+
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" *ngIf="showIncludeOtherInvestments">
+        <label for="userTitle">INCLUDE INVESTMENTS NOT UNDER CITADEL MANAGEMENT</label>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <input type="checkbox" [(ngModel)]="card.includeInvestments" />
+      </div>
+
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+        <label for="userTitle">INCLUDE SHARE BREAKDOWN</label>
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <input type="checkbox" [(ngModel)]="card.includeShareBreakdown" />
+      </div>
+    </div>
+
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-centered " style="vertical-align: top">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centeredNav ">
+        <input id="ViewReportButton" type="button" name="action" value="VIEW REPORT" (click)="viewValuation(1)" class="btn btn-primary" />
+        <input id="ExportReportButton" type="button" name="action" value="EXPORT TO PDF" (click)="viewValuation(3)" class="btn btn-primary" />
+        <input id="ExportXLSReportButton" type="button" name="action" value="EXPORT TO EXCEL" (click)="viewValuation(2)" class="btn btn-primary" />
+      </div>
+    </div>
+  </div>
+</div>

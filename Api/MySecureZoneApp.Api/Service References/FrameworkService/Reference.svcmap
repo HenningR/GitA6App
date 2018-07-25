@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8dbf0689-cf87-45e0-ac5c-952440067eb4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FrameworkService.xsd" MetadataType="Schema" ID="6607475f-4f61-40d2-b54b-20ce190c757e" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc?xsd=xsd3" />
+    <MetadataFile FileName="FrameworkService1.xsd" MetadataType="Schema" ID="47ab70aa-9c6f-47f1-a17f-f5aefda19216" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc?xsd=xsd4" />
+    <MetadataFile FileName="FrameworkService.wsdl" MetadataType="Wsdl" ID="558d599d-5453-440b-943e-e13026fa0742" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc?wsdl" />
+    <MetadataFile FileName="FrameworkService.disco" MetadataType="Disco" ID="e0874047-fc54-4de3-b4c7-c6437fd05027" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc?disco" />
+    <MetadataFile FileName="FrameworkService2.xsd" MetadataType="Schema" ID="0c6ac05e-1823-4373-80e4-ad3373c87194" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FrameworkService3.xsd" MetadataType="Schema" ID="5cfbcf4b-5728-41f5-8d51-aea3f7c1609f" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FrameworkService4.xsd" MetadataType="Schema" ID="b50a868b-9443-4978-aaee-fd8725621ba0" SourceId="1" SourceUrl="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

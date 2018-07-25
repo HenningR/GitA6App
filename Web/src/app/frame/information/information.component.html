@@ -1,0 +1,1 @@
+<div *ngIf="message" [ngClass]="{ 'notification': message, 'notify-success': message.type === 'success', 'notify-info': message.type === 'info', 'notify-warning': message.type === 'warning', 'notify-error': message.type === 'error' }"><div>{{message.text}}</div><span class="fa fa-close" (click)="clear($event);"></span></div>

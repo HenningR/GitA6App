@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Citadel.Web.TyrusServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Citadel.Web.TyrusServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfWebDocumentIndice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebDocumentIndice" nillable="true" type="tns:WebDocumentIndice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebDocumentIndice" nillable="true" type="tns:ArrayOfWebDocumentIndice" />
+  <xs:complexType name="WebDocumentIndice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" type="xs:long" />
+      <xs:element minOccurs="0" name="CategoryL" type="xs:short" />
+      <xs:element minOccurs="0" name="CategoryLDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClassL" type="xs:short" />
+      <xs:element minOccurs="0" name="ClassLDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientSalutation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContractNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateEffective" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DocumentID" type="ser:guid" />
+      <xs:element minOccurs="0" name="DocumentWebIndicesDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileExtension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartyID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ScannedBy" type="xs:int" />
+      <xs:element minOccurs="0" name="ScannedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StampDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SubTypeL" type="xs:short" />
+      <xs:element minOccurs="0" name="SubTypeLDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeL" type="xs:short" />
+      <xs:element minOccurs="0" name="TypeLDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebCategoryDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebCategoryL" type="xs:short" />
+      <xs:element minOccurs="0" name="WorkflowID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WebDocumentIndice" nillable="true" type="tns:WebDocumentIndice" />
+</xs:schema>

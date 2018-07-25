@@ -1,0 +1,99 @@
+<div class="row">
+  <div class=" col-lg-2 col-md-12 col-sm-12">
+    <!-- <div class="round-imagep" style="height:auto;width:300px; max-width:300px">
+      <img src="../../../assets/page-images/WELCOME.jpg" alt="Client Login Image" style="height:100%; width:100%">
+    </div> -->
+  </div>
+  <div class="col-lg-8 col-md-12 col-sm-12">
+    <div class="login-box">
+      <header>
+        <h1>
+          <strong>Welcome {{getClientName()}}</strong>
+        </h1>
+      </header>
+
+      <div id="homeIntro" class="MySecureZone-user-generated-content ">
+        <span [innerHTML]="getHomeHtml()"></span>
+      </div>
+
+      <div *ngIf="notificationCount > 0; then showUnreadNotification;">
+      </div>
+
+      <ng-template #showUnreadNotification>
+        <div class="MySecureZone-user-generated-content orange-text">
+            <p>You have {{notificationCount}} new notification<ng-template [ngIf]="notificationCount > 1">s</ng-template>.Click 
+            <a style="font-family: Century Gothic" (click)="changeRoute('/notifications')">
+              here
+            </a>
+            to access the notifications page.
+          </p>
+        </div>
+      </ng-template>
+
+
+      <div *ngIf="secureMessageCount > 0">
+          <div class="MySecureZone-user-generated-content orange-text">
+              <p>You have {{secureMessageCount}} new secure message<ng-template [ngIf]="secureMessageCount > 1">s</ng-template>.Click 
+              <a style="font-family: Century Gothic" (click)="changeRoute('/secure message')">
+                here
+              </a>
+              to access the secure messages page.
+            </p>
+          </div>
+        </div>
+
+
+
+
+      <!-- 
+                    @if (themeID == 1)
+                    {
+                        <div id="homeIntro" class="MySecureZone-user-generated-content ">@Html.Action("_HTMLPartContent", "Content", new { key = "MyCitadelIntro", area = "" })</div>
+                        if (unreadDocumentText != "")
+                        {
+                            <div class="MySecureZone-user-generated-content orange-text"><p> @unreadDocumentText @unreadDocumentTextMoreBefore @Html.ActionLink("here", "Index", "MyVault", new { key = "Vault" }, new { style = "font-family:Georgia !important; text-decoration:underline;" }) @unreadDocumentTextMoreAfter</p></div>
+
+                        }
+                        
+                        if (unreadNotificationText != "")
+                        {
+                            <div class="MySecureZone-user-generated-content orange-text"><p> @unreadNotificationText @unreadNotificationTextMoreBefore @Html.ActionLink("here", "Index", "Notification", new { key = "Notifications" }, new { style = "font-family:Georgia !important; text-decoration:underline;" }) @unreadNotificationTextMoreAfter</p></div>
+
+                        }
+
+                        if (unreadSecureNotificationText != "")
+                        {
+                            <div class="MySecureZone-user-generated-content orange-text"><p> @unreadSecureNotificationText @unreadSecureNotificationTextMoreBefore @Html.ActionLink("here", "Index", "SecureMessaging", new { key = "Secure Message" }, new { style = "font-family:Georgia !important; text-decoration:underline;" }) @unreadNotificationTextMoreAfter</p></div>
+                        }
+
+                    }
+                    else
+                    {
+                        <div id="homeIntro" class="MySecureZoneDefault-user-generated-content">@Html.Action("_HTMLPartContent", "Content", new { key = "MyCitadelIntro", area = "" })</div>
+                        if (unreadNotificationText != "")
+                        {
+                            <div class="MySecureZoneDefault-user-generated-content orange-text"><p> @unreadNotificationText @unreadNotificationTextMoreBefore @Html.ActionLink("here", "Index", "Notification", new { key = "Notifications" }, new { style = "font-family:Georgia !important; text-decoration:underline;" }) @unreadNotificationTextMoreAfter</p></div>
+                        }
+
+                        if (unreadSecureNotificationText != "")
+                        {
+                            <div class="MySecureZoneDefault-user-generated-content orange-text"><p> @unreadSecureNotificationText @unreadSecureNotificationTextMoreBefore @Html.ActionLink("here", "Index", "SecureMessaging", new { key = "Secure Message" }, new { style = "font-family:Georgia !important; text-decoration:underline;" }) @unreadNotificationTextMoreAfter</p></div>
+                        }
+
+                    } -->
+    </div>
+  </div>
+</div>
+
+
+<div class="col-lg-2 col-md-12 col-sm-12">
+
+</div>
+<div class="col-lg-9 col-md-12 col-sm-12">
+
+  <div style="font-family:Georgia; font-size:16px;" class="MySecureZone-user-generated-content">
+    <p> Click
+      <a href="https://www.citadel.co.za//media/3406/digital-platforms-electronic-leaflet.pdf?utm_medium=email&utm_campaign=MSZ_11August2017&utm_content=MSZ_11August2017+Preview+CID_e2b64b030f80ed0aa380b242e4dd65f5&utm_source=Campaign%20Monitor"
+        target="_blank">here</a> to learn more about the new features of the secure client portal.</p>
+  </div>
+</div>

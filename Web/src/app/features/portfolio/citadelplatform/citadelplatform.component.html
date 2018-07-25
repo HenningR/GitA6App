@@ -1,0 +1,20 @@
+<div class="row row-centered " style="padding-top: 30px">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div style="font-size: large">INVESTMENTS ON CITADEL PLATFORMS</div>
+      <div style="font-size: small">CITADEL INVESTMENT VALUES REPORT</div>
+      <div style="font-size: x-small">Contact your  <a style="font-family: Century Gothic" (click)="changeRoute('/advisor')">advisor</a> should you have any queries about your portfolio</div>
+    </div>
+  
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <app-accordion-panel [title]="client.ClientName" *ngFor="let client of this.clients" [expanded]="false" flat="true">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-left:20px">
+            <app-accordion-panel [title]="accounts.AccountName" [additionaltitle]="accounts.TotalManaged| currency:'R ':'symbol':'4.2-2'" [subPanel]="true" *ngFor="let accounts of this.investmentAccounts"
+              [expanded]="false" flat="true">
+              <app-platform-card  [currentAccount]="accounts"></app-platform-card>
+            </app-accordion-panel>
+          </div>
+        </div>
+      </app-accordion-panel>
+    </div>
+  </div>

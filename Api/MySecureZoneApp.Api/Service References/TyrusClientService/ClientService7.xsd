@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity" />
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" />
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity.Compliance" />
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Citadel.Framework.Staff.Entity" />
+  <xs:element name="GetData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookupValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LID" type="xs:short" />
+        <xs:element minOccurs="0" name="lookupName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="columnName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLookupValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLookupValueResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="partyID" type="q1:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity" minOccurs="0" name="GetClientResult" nillable="true" type="q2:Client" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="partyID" type="q3:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetClientNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataUsingDataContract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="composite" nillable="true" type="q4:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataUsingDataContractResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q5:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchClients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loggedOnUser" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="clientNumber" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="surname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="partyCompanyL" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="partyOfficeL" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="telNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:boolean" />
+        <xs:element minOccurs="0" name="contractNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchClientsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity" minOccurs="0" name="SearchClientsResult" nillable="true" type="q6:ArrayOfClient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientNumbers" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="registrationNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="firstname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="surname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isDeleted" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="phoneNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="company" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="entityGroups" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="contractNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loggedInUserID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByKeywords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+        <xs:element minOccurs="0" name="isDeleted" type="xs:boolean" />
+        <xs:element minOccurs="0" name="keywords" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchByKeywordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchByKeywordsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExternalRelationshipSummaryDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q7:guid" />
+        <xs:element minOccurs="0" name="current" type="xs:boolean" />
+        <xs:element minOccurs="0" name="includeEx" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExternalRelationshipSummaryDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExternalRelationshipSummaryDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteExternalRelationship">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="RelationshipID" type="q8:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteExternalRelationshipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteExternalRelationshipResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveExternalRelationship">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="partyID" type="q9:guid" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="relationshipID" type="q10:guid" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="relatedID" type="q11:guid" />
+        <xs:element minOccurs="0" name="type" type="xs:short" />
+        <xs:element minOccurs="0" name="relatedType" type="xs:short" />
+        <xs:element minOccurs="0" name="controllingPercentage" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveExternalRelationshipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveExternalRelationshipResult" type="xs:boolean" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="resultRelationshipID" type="q12:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetComplianceTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetComplianceTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity.Compliance" minOccurs="0" name="GetComplianceTypesResult" nillable="true" type="q13:ArrayOfComplianceType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ComplianceDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="partyID" type="q14:guid" />
+        <xs:element minOccurs="0" name="detailProcedure" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ComplianceDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ComplianceDetailResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffNames">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StaffGroupL" nillable="true" type="xs:short" />
+        <xs:element minOccurs="0" name="StaffLevelL" nillable="true" type="xs:short" />
+        <xs:element minOccurs="0" name="StaffPositionL" nillable="true" type="xs:short" />
+        <xs:element minOccurs="0" name="StaffRelationshipL" nillable="true" type="xs:short" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffNamesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStaffNamesResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPositionFilteredStaffList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="keyRolePositionList" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyNameList" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="accountTypeList" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="excludedKeyRolePositionList" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeDeleted" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPositionFilteredStaffListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPositionFilteredStaffListResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveNaturalPerson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q15:guid" />
+        <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Initials" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NationalityL" type="xs:short" />
+        <xs:element minOccurs="0" name="GenderL" type="xs:short" />
+        <xs:element minOccurs="0" name="TitleL" type="xs:short" />
+        <xs:element minOccurs="0" name="RaceL" type="xs:short" />
+        <xs:element minOccurs="0" name="ContactNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IDNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CorrespondanceLanguageL" type="xs:short" />
+        <xs:element minOccurs="0" name="DateOfBirth" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="DateOfDeath" type="xs:dateTime" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ReponsiblePerson" type="q16:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveNaturalPersonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="SaveNaturalPersonResult" nillable="true" type="q17:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNaturalPersonDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ID" type="q18:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNaturalPersonDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity" minOccurs="0" name="GetNaturalPersonDetailsResult" nillable="true" type="q19:Individual" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveLegalEntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q20:guid" />
+        <xs:element minOccurs="0" name="RSATradeName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SubTypeL" type="xs:short" />
+        <xs:element minOccurs="0" name="MasterOfHighCourtL" type="xs:short" />
+        <xs:element minOccurs="0" name="ContactNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TrustAdministrator" type="xs:short" />
+        <xs:element minOccurs="0" name="RegistrationNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CountryOfResidenceL" type="xs:short" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ReponsiblePerson" type="q21:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveLegalEntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="SaveLegalEntityResult" nillable="true" type="q22:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLegalEntityDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ID" type="q23:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLegalEntityDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity" minOccurs="0" name="GetLegalEntityDetailsResult" nillable="true" type="q24:NonIndividual" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientIdentification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q25:guid" />
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="IdentificationID" type="q26:guid" />
+        <xs:element minOccurs="0" name="CountryOfIssueL" type="xs:short" />
+        <xs:element minOccurs="0" name="IdentificationTypeL" type="xs:short" />
+        <xs:element minOccurs="0" name="DefaultForType" type="xs:boolean" />
+        <xs:element minOccurs="0" name="IDNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DateIssued" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="ExpiryDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientIdentificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="SaveClientIdentificationResult" nillable="true" type="q27:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SAIDNumberControlDigitValid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyId" type="q28:guid" />
+        <xs:element minOccurs="0" name="IDNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="gender" type="xs:short" />
+        <xs:element minOccurs="0" name="dateOfBirth" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SAIDNumberControlDigitValidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SAIDNumberControlDigitValidResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientIdentificationDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q29:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientIdentificationDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetClientIdentificationDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientIdentificationDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyIdentificationID" type="q30:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientIdentificationDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="DeleteClientIdentificationDetailResult" nillable="true" type="q31:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientTaxDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q32:guid" />
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TaxRegistrationID" type="q33:guid" />
+        <xs:element minOccurs="0" name="TaxCountryL" type="xs:short" />
+        <xs:element minOccurs="0" name="TaxRegistrationTyppeL" type="xs:short" />
+        <xs:element minOccurs="0" name="TaxNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TaxOfficeL" type="xs:short" />
+        <xs:element minOccurs="0" name="ProvisionalTaxPayer" type="xs:boolean" />
+        <xs:element minOccurs="0" name="InstitiutionClientNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TaxPurposesResident" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ReasonNotRegisteredL" type="xs:short" />
+        <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientTaxDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="SaveClientTaxDetailsResult" nillable="true" type="q34:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientTaxDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="ID" type="q35:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientTaxDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetClientTaxDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientTaxDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TaxRegistrationID" type="q36:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientTaxDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="DeleteClientTaxDetailsResult" nillable="true" type="q37:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientBankingDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q38:guid" />
+        <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyBankID" type="q39:guid" />
+        <xs:element minOccurs="0" name="AccountHolder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SignRights" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CountryL" type="xs:short" />
+        <xs:element minOccurs="0" name="AccountTypeL" type="xs:short" />
+        <xs:element minOccurs="0" name="BankL" type="xs:short" />
+        <xs:element minOccurs="0" name="BranchName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BranchNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BranchTelNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ActiveAccount" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AccountNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SWIFTNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IBANNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientBankingDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="SaveClientBankingDetailsResult" nillable="true" type="q40:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientBankingDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q41:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientBankingDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetClientBankingDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientBankingDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyBankID" type="q42:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientBankingDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="DeleteClientBankingDetailResult" nillable="true" type="q43:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientAddressDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q44:guid" />
+        <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyAddressID" type="q45:guid" />
+        <xs:element minOccurs="0" name="AddressTypeL" type="xs:short" />
+        <xs:element minOccurs="0" name="PostalAddressTypel" type="xs:short" />
+        <xs:element minOccurs="0" name="PostalAddressServiceTypeL" type="xs:short" />
+        <xs:element minOccurs="0" name="UnitNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ComplexName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StreetNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="StreetName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Suburb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ProvinceL" type="xs:short" />
+        <xs:element minOccurs="0" name="CountryL" type="xs:short" />
+        <xs:element minOccurs="0" name="AreaCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientAddressDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="SaveClientAddressDetailsResult" nillable="true" type="q46:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientAddressDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q47:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientAddressDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetClientAddressDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientAddressDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyAddressID" type="q48:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientAddressDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="DeleteClientAddressDetailsResult" nillable="true" type="q49:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientEmailDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q50:guid" />
+        <xs:element xmlns:q51="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyEmailID" type="q51:guid" />
+        <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AddressType" type="xs:short" />
+        <xs:element minOccurs="0" name="IsPreferred" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientEmailDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="SaveClientEmailDetailsResult" nillable="true" type="q52:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientEmailDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q53:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientEmailDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetClientEmailDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientEmailDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyEmailID" type="q54:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientEmailDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="DeleteClientEmailDetailsResult" nillable="true" type="q55:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientPhoneDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q56:guid" />
+        <xs:element xmlns:q57="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyTelephoneID" type="q57:guid" />
+        <xs:element minOccurs="0" name="TypeL" type="xs:short" />
+        <xs:element minOccurs="0" name="AreaCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CountryL" type="xs:short" />
+        <xs:element minOccurs="0" name="IsPreferred" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientPhoneDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="SaveClientPhoneDetailsResult" nillable="true" type="q58:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientPhoneDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q59:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientPhoneDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetClientPhoneDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientPhoneDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyTelephoneID" type="q60:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientPhoneDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="DeleteClientPhoneDetailsResult" nillable="true" type="q61:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientNoteDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q62:guid" />
+        <xs:element xmlns:q63="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyNotesID" type="q63:guid" />
+        <xs:element minOccurs="0" name="CategoryL" type="xs:short" />
+        <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientNoteDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="SaveClientNoteDetailsResult" nillable="true" type="q64:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientNoteDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q65:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientNoteDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetClientNoteDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientNoteDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyNotesID" type="q66:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientNoteDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="DeleteClientNoteDetailResult" nillable="true" type="q67:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByRegistrationNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistrationNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetByRegistrationNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetByRegistrationNoResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffByKeyRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="KeyRoleL" nillable="true" type="xs:short" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffByKeyRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStaffByKeyRoleResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntitySharingSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="clientID" type="q68:guid" />
+        <xs:element minOccurs="0" name="showDeleted" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntitySharingSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetEntitySharingSummaryResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActiveStaffByClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="PartyID" type="q69:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActiveStaffByClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetActiveStaffByClientResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserControlPermission">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="controlPermission" type="xs:short" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserControlPermissionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Citadel.Tyrus.Service" minOccurs="0" name="CheckUserControlPermissionResult" nillable="true" type="q70:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntityShareSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="clientID" type="q71:guid" />
+        <xs:element minOccurs="0" name="showDeleted" type="xs:boolean" />
+        <xs:element minOccurs="0" name="viewDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntityShareSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetEntityShareSummaryResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffEntitySharing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="entitySharingID" type="q72:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStaffEntitySharingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/Citadel.Framework.Staff.Entity" minOccurs="0" name="GetStaffEntitySharingResult" nillable="true" type="q73:StaffEntitySharing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntitySharingHistorySummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="clientID" type="q74:guid" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntitySharingHistorySummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetEntitySharingHistorySummaryResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveStaffEntitySharing">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/Citadel.Framework.Staff.Entity" minOccurs="0" name="staffEntitySharing" nillable="true" type="q75:StaffEntitySharing" />
+        <xs:element minOccurs="0" name="loggedInUserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveStaffEntitySharingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveStaffEntitySharingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

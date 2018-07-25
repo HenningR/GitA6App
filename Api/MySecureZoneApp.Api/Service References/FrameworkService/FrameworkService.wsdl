@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FrameworkService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Citadel.Framework.Entity" />
+      <xsd:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc?xsd=xsd4" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFrameworkService_GetLookupNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLookupNames" />
+  </wsdl:message>
+  <wsdl:message name="IFrameworkService_GetLookupNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLookupNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFrameworkService_GetLookup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLookup" />
+  </wsdl:message>
+  <wsdl:message name="IFrameworkService_GetLookup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFrameworkService_GetLookupSpecific_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLookupSpecific" />
+  </wsdl:message>
+  <wsdl:message name="IFrameworkService_GetLookupSpecific_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLookupSpecificResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFrameworkService_GetLinkedLookup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedLookup" />
+  </wsdl:message>
+  <wsdl:message name="IFrameworkService_GetLinkedLookup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFrameworkService_GetMasterOfHighCourtAddressList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMasterOfHighCourtAddressList" />
+  </wsdl:message>
+  <wsdl:message name="IFrameworkService_GetMasterOfHighCourtAddressList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMasterOfHighCourtAddressListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFrameworkService">
+    <wsdl:operation name="GetLookupNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFrameworkService/GetLookupNames" message="tns:IFrameworkService_GetLookupNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFrameworkService/GetLookupNamesResponse" message="tns:IFrameworkService_GetLookupNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFrameworkService/GetLookup" message="tns:IFrameworkService_GetLookup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFrameworkService/GetLookupResponse" message="tns:IFrameworkService_GetLookup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookupSpecific">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFrameworkService/GetLookupSpecific" message="tns:IFrameworkService_GetLookupSpecific_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFrameworkService/GetLookupSpecificResponse" message="tns:IFrameworkService_GetLookupSpecific_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedLookup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFrameworkService/GetLinkedLookup" message="tns:IFrameworkService_GetLinkedLookup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFrameworkService/GetLinkedLookupResponse" message="tns:IFrameworkService_GetLinkedLookup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterOfHighCourtAddressList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFrameworkService/GetMasterOfHighCourtAddressList" message="tns:IFrameworkService_GetMasterOfHighCourtAddressList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFrameworkService/GetMasterOfHighCourtAddressListResponse" message="tns:IFrameworkService_GetMasterOfHighCourtAddressList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFrameworkService" type="tns:IFrameworkService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLookupNames">
+      <soap:operation soapAction="http://tempuri.org/IFrameworkService/GetLookupNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLookup">
+      <soap:operation soapAction="http://tempuri.org/IFrameworkService/GetLookup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLookupSpecific">
+      <soap:operation soapAction="http://tempuri.org/IFrameworkService/GetLookupSpecific" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedLookup">
+      <soap:operation soapAction="http://tempuri.org/IFrameworkService/GetLinkedLookup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterOfHighCourtAddressList">
+      <soap:operation soapAction="http://tempuri.org/IFrameworkService/GetMasterOfHighCourtAddressList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FrameworkService">
+    <wsdl:port name="BasicHttpBinding_IFrameworkService" binding="tns:BasicHttpBinding_IFrameworkService">
+      <soap:address location="http://srv12webdev:8020/LiveTestTyrusServices/FrameworkService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

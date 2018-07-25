@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Citadel.Framework.Entity" />
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity.CRM" />
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity.Estate" />
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Client">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Citadel.Framework.Entity" base="q1:EntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClientNumber" type="xs:long" />
+          <xs:element minOccurs="0" name="ClientStatus" type="xs:short" />
+          <xs:element minOccurs="0" name="ClientType" type="xs:short" />
+          <xs:element minOccurs="0" name="CorrespondanceLanguage" type="xs:short" />
+          <xs:element minOccurs="0" name="CountryOfResidence" type="xs:short" />
+          <xs:element minOccurs="0" name="InceptionDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Client" nillable="true" type="tns:Client" />
+  <xs:complexType name="ArrayOfClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Client" nillable="true" type="tns:Client" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClient" nillable="true" type="tns:ArrayOfClient" />
+  <xs:complexType name="Individual">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Client">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AmbassadorType" type="xs:short" />
+          <xs:element minOccurs="0" name="BirthCountry" type="xs:short" />
+          <xs:element minOccurs="0" name="BirthDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BirthPlace" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity.CRM" minOccurs="0" name="BrainProfile" nillable="true" type="q2:BrainProfile" />
+          <xs:element minOccurs="0" name="DateOfDeath" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EmploymentStatus" type="xs:short" />
+          <xs:element minOccurs="0" name="FirstNames" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" type="xs:short" />
+          <xs:element minOccurs="0" name="HomeLanguage" type="xs:short" />
+          <xs:element minOccurs="0" name="Initials" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsAmbassador" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPEPPerson" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsReferable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MaidenName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaritalDateForAccrual" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MaritalStatus" type="xs:short" />
+          <xs:element minOccurs="0" name="MaritalStatusDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Nationality" type="xs:short" />
+          <xs:element minOccurs="0" name="NickName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PEPRevisionDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Race" type="xs:short" />
+          <xs:element minOccurs="0" name="Suffix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Title" type="xs:short" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity.Estate" minOccurs="0" name="Will" nillable="true" type="q3:Will" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Individual" nillable="true" type="tns:Individual" />
+  <xs:complexType name="NonIndividual">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Client">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Administrator" type="xs:short" />
+          <xs:element minOccurs="0" name="BeneficiariesDeterminedMethod" type="xs:short" />
+          <xs:element minOccurs="0" name="ContactPerson" nillable="true" type="tns:Client" />
+          <xs:element minOccurs="0" name="DeedContactClientID" type="ser:guid" />
+          <xs:element minOccurs="0" name="FiduciaryCertifiedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="FiduciaryReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FiduciaryStatus" type="xs:short" />
+          <xs:element minOccurs="0" name="HasLetterOfAuthority" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HasLetterOfWishes" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsCitadelATrustee" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MasterOfHighCourt" type="xs:short" />
+          <xs:element minOccurs="0" name="MoreInformation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RSATradeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegistrationNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SalutationL" type="xs:short" />
+          <xs:element minOccurs="0" name="TrustIsLocal" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Type" type="xs:short" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NonIndividual" nillable="true" type="tns:NonIndividual" />
+</xs:schema>

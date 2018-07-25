@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity.Compliance" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Citadel.Clients.Entity.Compliance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Citadel.Framework.Entity" />
+  <xs:complexType name="ArrayOfComplianceType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ComplianceType" nillable="true" type="tns:ComplianceType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComplianceType" nillable="true" type="tns:ArrayOfComplianceType" />
+  <xs:complexType name="ComplianceType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Citadel.Framework.Entity" base="q1:EntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ComplianceTypeID" type="ser:guid" />
+          <xs:element minOccurs="0" name="ComplianceTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsDisabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="StoredProcedure" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ComplianceType" nillable="true" type="tns:ComplianceType" />
+</xs:schema>

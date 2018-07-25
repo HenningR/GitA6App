@@ -1,0 +1,46 @@
+<h2 class="accHeadWidth">
+    CONFIRMATION OF INCOME
+  </h2>
+
+  <div>
+    <div>Your current income, as paid from your investments, is tabulated below:</div>
+
+    <table id="docTable" style="display:block">
+      <thead>
+        <tr>
+          <th style="text-align: left">
+            Product Name
+          </th>
+
+          <th style=" text-align: center;">
+            Latest Withdrawal
+          </th>
+
+          <th style="text-align: center;">
+            Date
+          </th>
+
+          <th style=" text-align: center">
+            Annuity Anniversary
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let reportData of confirmationTable">
+
+          <td  style=" text-align: left">{{reportData["Product name"]}}</td> 
+
+
+          <td style="text-align: right">{{reportData["Latest withdrawal"] | currency:'R ':'symbol':'4.2-2'}}</td>
+
+          <td style="white-space:nowrap;min-width:70px;text-align: center">{{reportData["Date"] | date :'yyyy-MM-dd'}}</td>
+
+
+          <td style="text-align: center" >{{ getAnnuityDate(reportData["Annuity anniversary"])}}</td> 
+          
+        </tr>
+
+      </tbody>
+    </table>
+  </div>

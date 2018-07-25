@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ReportService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd3" />
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Citadel.Web.TyrusServices" />
+      <xsd:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IReportService_GetReportCurrencies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportCurrencies" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetReportCurrencies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportCurrenciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ValutationSummaryHTML_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValutationSummaryHTML" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ValutationSummaryHTML_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValutationSummaryHTMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ValutationSummaryExcel_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValutationSummaryExcel" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ValutationSummaryExcel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValutationSummaryExcelResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ValutationSummaryPdf_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValutationSummaryPdf" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ValutationSummaryPdf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValutationSummaryPdfResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ValutationSummaryMailPDF_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValutationSummaryMailPDF" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_ValutationSummaryMailPDF_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValutationSummaryMailPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_FundFactSheetList_InputMessage">
+    <wsdl:part name="parameters" element="tns:FundFactSheetList" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_FundFactSheetList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FundFactSheetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_FundFactSheet_InputMessage">
+    <wsdl:part name="parameters" element="tns:FundFactSheet" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_FundFactSheet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FundFactSheetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetInvestmentContractNumbers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvestmentContractNumbers" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetInvestmentContractNumbers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvestmentContractNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GenerateQuarterlyReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateQuarterlyReport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GenerateQuarterlyReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateQuarterlyReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getUnreadDocumentCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUnreadDocumentCount" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getUnreadDocumentCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUnreadDocumentCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getDocumentData_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDocumentData" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getDocumentData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDocumentDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetActiveTransactionCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveTransactionCount" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetActiveTransactionCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveTransactionCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getDocumentWebMappings_InputMessage">
+    <wsdl:part name="parameters" element="tns:getDocumentWebMappings" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getDocumentWebMappings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getDocumentWebMappingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_setDocumentWebStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:setDocumentWebStatus" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_setDocumentWebStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setDocumentWebStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_setDocumentWebStatusAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:setDocumentWebStatusAll" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_setDocumentWebStatusAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setDocumentWebStatusAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_switchUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:switchUser" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_switchUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:switchUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getWebReports_InputMessage">
+    <wsdl:part name="parameters" element="tns:getWebReports" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getWebReports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getWebReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getWebReportData_InputMessage">
+    <wsdl:part name="parameters" element="tns:getWebReportData" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getWebReportData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getWebReportDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_updateWebReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateWebReport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_updateWebReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateWebReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getProductSheet_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProductSheet" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getProductSheet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductSheetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getSupplierStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSupplierStatement" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_getSupplierStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSupplierStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetEACReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEACReport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetEACReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEACReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetFeeSummaryReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeeSummaryReport" />
+  </wsdl:message>
+  <wsdl:message name="IReportService_GetFeeSummaryReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFeeSummaryReportResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IReportService">
+    <wsdl:operation name="GetReportCurrencies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetReportCurrencies" message="tns:IReportService_GetReportCurrencies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetReportCurrenciesResponse" message="tns:IReportService_GetReportCurrencies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValutationSummaryHTML">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/ValutationSummaryHTML" message="tns:IReportService_ValutationSummaryHTML_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/ValutationSummaryHTMLResponse" message="tns:IReportService_ValutationSummaryHTML_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValutationSummaryExcel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/ValutationSummaryExcel" message="tns:IReportService_ValutationSummaryExcel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/ValutationSummaryExcelResponse" message="tns:IReportService_ValutationSummaryExcel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValutationSummaryPdf">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/ValutationSummaryPdf" message="tns:IReportService_ValutationSummaryPdf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/ValutationSummaryPdfResponse" message="tns:IReportService_ValutationSummaryPdf_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValutationSummaryMailPDF">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/ValutationSummaryMailPDF" message="tns:IReportService_ValutationSummaryMailPDF_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/ValutationSummaryMailPDFResponse" message="tns:IReportService_ValutationSummaryMailPDF_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FundFactSheetList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/FundFactSheetList" message="tns:IReportService_FundFactSheetList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/FundFactSheetListResponse" message="tns:IReportService_FundFactSheetList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FundFactSheet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/FundFactSheet" message="tns:IReportService_FundFactSheet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/FundFactSheetResponse" message="tns:IReportService_FundFactSheet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvestmentContractNumbers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetInvestmentContractNumbers" message="tns:IReportService_GetInvestmentContractNumbers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetInvestmentContractNumbersResponse" message="tns:IReportService_GetInvestmentContractNumbers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateQuarterlyReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GenerateQuarterlyReport" message="tns:IReportService_GenerateQuarterlyReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GenerateQuarterlyReportResponse" message="tns:IReportService_GenerateQuarterlyReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/getDocuments" message="tns:IReportService_getDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/getDocumentsResponse" message="tns:IReportService_getDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUnreadDocumentCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/getUnreadDocumentCount" message="tns:IReportService_getUnreadDocumentCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/getUnreadDocumentCountResponse" message="tns:IReportService_getUnreadDocumentCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/getDocumentData" message="tns:IReportService_getDocumentData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/getDocumentDataResponse" message="tns:IReportService_getDocumentData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTransactionCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetActiveTransactionCount" message="tns:IReportService_GetActiveTransactionCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetActiveTransactionCountResponse" message="tns:IReportService_GetActiveTransactionCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentWebMappings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/getDocumentWebMappings" message="tns:IReportService_getDocumentWebMappings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/getDocumentWebMappingsResponse" message="tns:IReportService_getDocumentWebMappings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setDocumentWebStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/setDocumentWebStatus" message="tns:IReportService_setDocumentWebStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/setDocumentWebStatusResponse" message="tns:IReportService_setDocumentWebStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setDocumentWebStatusAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/setDocumentWebStatusAll" message="tns:IReportService_setDocumentWebStatusAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/setDocumentWebStatusAllResponse" message="tns:IReportService_setDocumentWebStatusAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="switchUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/switchUser" message="tns:IReportService_switchUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/switchUserResponse" message="tns:IReportService_switchUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getWebReports">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/getWebReports" message="tns:IReportService_getWebReports_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/getWebReportsResponse" message="tns:IReportService_getWebReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getWebReportData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/getWebReportData" message="tns:IReportService_getWebReportData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/getWebReportDataResponse" message="tns:IReportService_getWebReportData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateWebReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/updateWebReport" message="tns:IReportService_updateWebReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/updateWebReportResponse" message="tns:IReportService_updateWebReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProductSheet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/getProductSheet" message="tns:IReportService_getProductSheet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/getProductSheetResponse" message="tns:IReportService_getProductSheet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSupplierStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/getSupplierStatement" message="tns:IReportService_getSupplierStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/getSupplierStatementResponse" message="tns:IReportService_getSupplierStatement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEACReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetEACReport" message="tns:IReportService_GetEACReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetEACReportResponse" message="tns:IReportService_GetEACReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFeeSummaryReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportService/GetFeeSummaryReport" message="tns:IReportService_GetFeeSummaryReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportService/GetFeeSummaryReportResponse" message="tns:IReportService_GetFeeSummaryReport_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IReportService" type="tns:IReportService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetReportCurrencies">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetReportCurrencies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValutationSummaryHTML">
+      <soap:operation soapAction="http://tempuri.org/IReportService/ValutationSummaryHTML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValutationSummaryExcel">
+      <soap:operation soapAction="http://tempuri.org/IReportService/ValutationSummaryExcel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValutationSummaryPdf">
+      <soap:operation soapAction="http://tempuri.org/IReportService/ValutationSummaryPdf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValutationSummaryMailPDF">
+      <soap:operation soapAction="http://tempuri.org/IReportService/ValutationSummaryMailPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FundFactSheetList">
+      <soap:operation soapAction="http://tempuri.org/IReportService/FundFactSheetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FundFactSheet">
+      <soap:operation soapAction="http://tempuri.org/IReportService/FundFactSheet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvestmentContractNumbers">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetInvestmentContractNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateQuarterlyReport">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GenerateQuarterlyReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocuments">
+      <soap:operation soapAction="http://tempuri.org/IReportService/getDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUnreadDocumentCount">
+      <soap:operation soapAction="http://tempuri.org/IReportService/getUnreadDocumentCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentData">
+      <soap:operation soapAction="http://tempuri.org/IReportService/getDocumentData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTransactionCount">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetActiveTransactionCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDocumentWebMappings">
+      <soap:operation soapAction="http://tempuri.org/IReportService/getDocumentWebMappings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDocumentWebStatus">
+      <soap:operation soapAction="http://tempuri.org/IReportService/setDocumentWebStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDocumentWebStatusAll">
+      <soap:operation soapAction="http://tempuri.org/IReportService/setDocumentWebStatusAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="switchUser">
+      <soap:operation soapAction="http://tempuri.org/IReportService/switchUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWebReports">
+      <soap:operation soapAction="http://tempuri.org/IReportService/getWebReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWebReportData">
+      <soap:operation soapAction="http://tempuri.org/IReportService/getWebReportData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateWebReport">
+      <soap:operation soapAction="http://tempuri.org/IReportService/updateWebReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductSheet">
+      <soap:operation soapAction="http://tempuri.org/IReportService/getProductSheet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSupplierStatement">
+      <soap:operation soapAction="http://tempuri.org/IReportService/getSupplierStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEACReport">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetEACReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFeeSummaryReport">
+      <soap:operation soapAction="http://tempuri.org/IReportService/GetFeeSummaryReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportService">
+    <wsdl:port name="BasicHttpBinding_IReportService" binding="tns:BasicHttpBinding_IReportService">
+      <soap:address location="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

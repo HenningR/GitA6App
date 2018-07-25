@@ -1,0 +1,78 @@
+<div class="row" style="padding-top: 30px">
+    <div class=" col-lg-2 col-md-12 col-sm-12">
+
+        <div *ngIf="jsonObject == undefined || jsonObject.Name == undefined">
+            Please wait.Busy loading...
+            <app-information></app-information>
+        </div>
+
+        <div *ngIf="jsonObject != undefined && jsonObject != null && jsonObject.Name != undefined && jsonObject.Name != null  ">
+            <article class="person-listing" style="font-size:15px;color:#403C3B !important">
+                <div class="row  with-spacing">
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+                        <div class="round-image" style="max-width:300px;height:auto; ">
+
+                            <div *ngIf="jsonObject.ProfilePicture != ''">
+                                <img src="https://www.citadel.co.za/{{jsonObject.ProfilePicture}}" alt="jsonObject.Name" style="height:100% ; width:100%"
+                                />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-12 col-sm-12" style="font-family: Georgia !important">
+                        <h2>
+                            <strong>{{jsonObject.Name}} </strong>
+                        </h2>
+
+                        <p class="uppercase" style="font-family:'Century Gothic';font-weight: 700;">{{jsonObject.JobTitle}}</p>
+                        <p class="uppercase" style="font-family:'Century Gothic';font-weight: 700;">{{jsonObject.Qualifications}}</p>
+                        <div>
+                            <span style="display: block;font-family:Georgia;line-height:22.5px;" [innerHTML]="getSafeHTML(jsonObject.Biography)"></span>
+                        </div>
+                        <br />
+                        <div *ngIf="jsonObject.Telephone != ''">
+                            <span class="orange-text" style="font-family:Georgia;font-size:15px;">
+                                <strong>T:</strong>
+                            </span>
+                            <a [href]="buildText('Tel:',jsonObject.Telephone,'Contact Advisor')" >{{jsonObject.Telephone}}</a>
+                            <br>
+                        </div>
+
+
+                        <div *ngIf="jsonObject.Email != ''">
+                            <span class="orange-text" style="font-family:Georgia;font-size:15px;">
+                                <strong>E:</strong>
+                            </span>
+                            <a class="uppercase" [href]="buildText('mailto:',jsonObject.Email,'Email Advisor')" >{{jsonObject.Email}}</a>
+                        </div>
+
+                        <div *ngIf="jsonObject.Assistants != ''">
+                            <div *ngFor="let categoryDesc of jsonObject.Assistants">
+                                    <div *ngIf="categoryDesc.Name != ''">
+
+                                        <br />
+                                        <strong style="font-family:'Century Gothic'">Assistant:</strong>{{categoryDesc.Name}}
+                                        <br>
+                                    </div>
+                                    <div *ngIf="categoryDesc.Telephone != ''">
+                                        <span class="orange-text" style="font-family:Georgia;font-size:15px;">
+                                            <strong>T:</strong>
+                                        </span>
+                                        <a [href]="buildText('tel:',categoryDesc.Telephone,'Contact Advisor Assistant' )" >{{categoryDesc.Telephone}} </a>
+                                        <br>
+                                    </div>
+                                    <div *ngIf="categoryDesc.Email != ''">
+                                        <span class="orange-text" style="font-family:Georgia;font-size:15px;">
+                                            <strong>E:</strong>
+                                        </span>
+                                        <a class="uppercase" [href]="buildText('mailto:',categoryDesc.Email,'Email Advisor Assistant')" >{{categoryDesc.Email}}</a>
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

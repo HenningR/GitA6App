@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1c7d9059-e1aa-4a90-88b7-5ff748d197a0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ReportService.xsd" MetadataType="Schema" ID="6e51ef8b-86c7-4047-8036-75c34641fab1" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ReportService1.xsd" MetadataType="Schema" ID="ac5180a3-c9c2-473e-9bc1-3c316bdc636e" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ReportService.wsdl" MetadataType="Wsdl" ID="3ef58559-793c-4e31-809e-6eab1ca742d9" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?wsdl" />
+    <MetadataFile FileName="ReportService2.xsd" MetadataType="Schema" ID="de4dbed7-e89e-4e75-9676-4de876bc0450" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ReportService3.xsd" MetadataType="Schema" ID="4b7defee-9497-4145-97c9-2805500e1f69" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ReportService4.xsd" MetadataType="Schema" ID="31201e39-26db-4b1f-82b3-b5e2be1fc402" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ReportService5.xsd" MetadataType="Schema" ID="8c930347-61b7-4a1c-81d3-36823d99f317" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ReportService.disco" MetadataType="Disco" ID="ed353b07-a146-4685-b888-65ad21f7d052" SourceId="1" SourceUrl="http://srv12webdev:8006/Citadel.Web.Service/ReportService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

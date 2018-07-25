@@ -1,0 +1,233 @@
+$base-theme:Default;
+$skin-name:citadel-kendo;
+$accent: #e28f26;
+$accent-contrast: #ffffff;
+$text-color: #656565;
+$bg-color: #ffffff;
+$base-text: #656565;
+$base-bg: #f6f6f6;
+$hovered-text: #656565;
+$hovered-bg: #ededed;
+$selected-text: #ffffff;
+$selected-bg: #e7bc51;
+$info: #3e80ed;
+$success: #5ec232;
+$warning: #fdce3e;
+$error: #d51923;
+$series-a: #e07e27;
+$series-b: #b8b4b3;
+$series-c: #e4a025;
+$series-d: #8c8585;
+$series-e: #bf3300;
+$series-f: #ecebe5;
+
+
+/* From Citadel branding guidelines */
+
+$color-citadel-amber: #E28F26;
+$color-citadel-anthracite: #403C3B;
+$color-citadel-darkgrey: #4D4848;
+$color-citadel-mediumgrey: #B8B4B3;
+$color-citadel-lightgrey: #A4A1A0;
+$color-citadel-lightergrey: #D6D1CE;
+$color-citadel-lightestgrey: #ECEBE5;
+$color-citadel-line: #939598;
+$color-citadel-yellow: #F2D387;
+$color-citadel-mustard: #E7BC51;
+$color-citadel-orange: #E4A025;
+
+/* UI element constants */
+$color-standard-text: $color-citadel-darkgrey;
+$color-link: $color-citadel-amber;
+$color-citadel-heading: $color-citadel-amber;
+$color-menu-text: $color-citadel-darkgrey;
+$color-menu-bar-background: white;
+$color-menu-background: $color-citadel-lightergrey;
+$color-menu-selection-text: $color-citadel-amber;
+$color-menu-selection: $color-citadel-darkgrey;
+$color-divider-line: $color-citadel-lightergrey;
+// $color-menu-selection: $color-citadel-amber;
+// $color-menu-selection-text: white;
+$border-radius: 4px;
+
+$color-menu-detail-background: $color-citadel-lightestgrey;
+$color-menu-detail-text: $color-citadel-anthracite;
+$color-menu-detail-line: $color-citadel-line;
+$color-menu-detail-selection: $color-citadel-yellow;
+
+$transition-time-normal: 0.3s;
+$transition-time-fast: $transition-time-normal / 2;
+$transition-time-slow: $transition-time-normal * 2;
+
+$size-standard-text: 12pt;
+$size-small-text: 10pt;
+$size-heading-text: 24pt;
+$size-mobile-button: 48px;
+$size-input-padding: 4px;// 8px;
+/* Mixins for standard text elements */
+@mixin standard-text() {
+  font-family: Century Gothic, Helvetica, Arial, sans-serif;
+  font-size: $size-standard-text;
+  font-weight: normal;
+  font-style: normal;
+  color: $color-standard-text;
+}
+@mixin body-text() {
+  @include standard-text;
+  font-family: Georgia, Times Roman, serif;
+}
+@mixin heading-text() {
+  @include standard-text;
+  font-size: $size-heading-text;
+  font-weight: bold;
+  color: $color-citadel-heading;
+  text-transform: uppercase;
+}
+
+/* Responsive breakpoints */
+$xs: ( max:  767px );
+$sm: ( min:  768px );
+$md: ( min:  992px );
+$lg: ( min: 1200px );
+$sm-only: ( min: map-get($sm, min), max: map-get($md, min) - 1 );
+$md-only: ( min: map-get($md, min), max: map-get($lg, min) - 1 );
+
+@mixin breakpoint($map) {
+  $query: "";
+  @if map-has-key($map, min) { $query: append($query, "(min-width: #{map-get($map, min)})") }
+  @if map-has-key($map, min) and map-has-key($map, max) { $query: append($query, "and") }
+  @if map-has-key($map, max) { $query: append($query, "(max-width: #{map-get($map, max)})") }
+ // @media screen and #{$query} { @content; }
+}
+
+/* Menu mixins */
+@mixin menu-text() {
+  font-family: Century Gothic, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: $color-menu-text;
+}
+
+@mixin menu-detail-text() {
+  @include menu-text;
+  font-size: 12pt;
+  color: $color-menu-text;
+  line-height: 2em;
+}
+
+@mixin menu-section-text() {
+  @include menu-text;
+  font-size: 12pt;
+  text-transform: uppercase;
+  padding: 0;
+  color: $color-menu-text;
+}
+
+@mixin menu-bar-padding() {
+  padding: 0.8em 0.8em;
+}
+
+@mixin menu-no-text-select() {
+  cursor: default;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Standards-compliant version */
+}
+
+@mixin menu-transition() {
+  $timing: 0.4s;
+  -webkit-transition: all $timing ease-in;
+  -moz-transition: all $timing ease-in;
+  -ms-transition: all $timing ease-in;
+  transition: all $timing ease-in;
+}
+
+@mixin menu-detail-panel {
+  z-index: 10000;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  background: $color-menu-background;
+  border-radius: 0 0 $border-radius $border-radius;
+  color: $color-menu-text;
+  padding: 1em 1em;
+}
+
+@mixin shadow-thin-bottom {
+  -webkit-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 5px -2px rgba(0,0,0,0.75);
+}
+
+@mixin shadow-curved {
+  position: relative;
+
+  :before, :after {
+    background: red;
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 18px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: #777;
+    box-shadow: 0 15px 10px #777;
+    transform: rotate(-3deg);
+  }
+  :after {
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+  }
+}
+
+h1 {
+  @include heading-text;
+}
+
+$colors-chart: #E07E27, #B8B4B3, #E4A025, #8C8585, #BF3300, #ECEBE5, #F2D387, #4D4848, #E68000, #D6D1CE, #E66600, #E6E6E1, #191818;
+//$colors: lightgreen, lightblue, orange, brown, yellow, green, salmon, lightgrey, chartreuse, skyblue, aliceblue;
+//$colors: rgb(224, 126, 39), rgb(184, 180, 179), rgb(228, 160, 37), rgb(140, 133, 133), rgb(191, 51, 0), rgb(236, 235, 229), rgb(242, 211, 135), rgb(77, 72, 72), rgb(230, 128, 0), rgb(214, 209, 206), rgb(230, 102, 0), rgb(230, 230, 225), rgb(25, 24, 24);
+@mixin generate-legend-colors() {
+    @for $i from 1 through length($colors-chart) {
+        .chart-legend-#{$i - 1} {
+            background-color: nth($colors-chart, $i);
+        }
+    }
+}
+.chart-legend-white {
+  background-color: white;
+}
+@include generate-legend-colors();
+
+input {
+  font-size: 14px; // Matches Kendo
+}
+.k-textbox {
+  width: 100%;
+}
+
+.inputPrompt {
+  padding-right: 1em;
+  // text-align: right;
+  box-sizing: border-box;
+  align-self: flex-start;
+  flex-grow: 0;
+}
+.inputStretch {
+  flex-grow: 1;
+  align-self: stretch;
+}

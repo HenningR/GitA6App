@@ -1,0 +1,29 @@
+export class DocumentModel{
+    DocumentID?:string;
+    PartyID?:string;
+    ClientSalutation?:string;
+    CategoryL?:number;
+    CategoryLDescription?:string;
+    ClassL?:number;
+    ClassLDescription?:string;
+    TypeL?:number;
+    TypeLDescription?:string;
+    SubTypeL?:number;
+    SubTypeLDescription?:string;
+    SupplierL?:number;
+    SupplierLDescription?:string;
+    ScannedBy?:string;
+    ScannedDate?:Date;
+    DateEffective?:Date;
+    Comments?:string;
+    WorkflowID?:string;
+    StampDate?:Date;
+    StampStaffID?:number;
+    FileExtension?:string;
+    AccountID ?:string;
+    InvestmentID?:string;
+    DocumentWebIndicesDescription?:string;
+    AccountNumber?:number;
+    ContractNumber?:string;
+    WebCategoryDesc?:string;
+}

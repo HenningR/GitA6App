@@ -1,0 +1,53 @@
+<div class="row" style="padding-top: 30px" *ngIf="showDocumentCategories">
+    <app-information></app-information>
+  <ng-container *ngFor="let item of this.documentCategories; let i = index">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6" style="padding: 2px">
+
+      <figure class="figure" style="width:100%;border:solid medium;" (click)="openAccordion(item.Component)">
+        <img src="../../../assets/document-icon.png" alt="Document" width="100%" height="auto" class="figure-img img-fluid rounded"
+          style="padding-top: 5px">
+        <figcaption class="figure-caption" style="text-align: center">
+          <div>
+            <b>{{item.Component}}</b>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </ng-container>
+</div>
+
+
+<div *ngIf="showDocuments" style="padding-top: 30px">
+    <p style=" text-align:right;border-bottom: solid medium ">
+        <input id="CloseButton" type="button" (click)="closeDocumentView()" name="action" value="Back" class="btn btn-secondary" />
+      </p>
+    <app-accordion-panel [title]="distinctCategory.CategoryLDescription" *ngFor="let distinctCategory of this.documentSubCategories" [expanded]="false" flat="true">
+          <div *ngFor="let distinctClients of this.getDocumentClients(distinctCategory.WebCategoryDesc)" style="padding-left:5px">
+          <app-accordion-panel [title]="distinctClients.ClientSalutation" [subPanel]="true"  *ngIf="showClient(distinctClients.PartyID,distinctCategory.CategoryLDescription)" [expanded]="false" flat="true">
+              <ng-container *ngFor="let item of documentSpecificArr">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="padding: 2px">
+                    <figure class="figure"  >
+                      <img src="../../../assets/document-icon.png" alt="Document" width="100%" height="auto" class="figure-img img-fluid rounded"
+                        style="padding-top: 5px" (click)="openDocument(item.DocumentID,item.DocumentWebIndicesDescription)">
+                      <figcaption class="figure-caption" style="text-align: center">
+                        <div>
+                          
+                          <b style="font-size: xx-small;line-height: 3px">{{item.DocumentWebIndicesDescription}}</b>
+                          
+                        </div>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </ng-container>
+          </app-accordion-panel>
+        </div>
+    </app-accordion-panel>
+
+  </div>
+
+  <div *ngIf="showAnnualReport" style="padding-top: 30px">
+    <p style=" text-align:right;border-bottom: solid medium ">
+      <input id="CloseButton" type="button" (click)="closeDocumentView()" name="action" value="Back" class="btn btn-secondary" />
+    </p>
+    <app-annualreport></app-annualreport>
+  </div>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Citadel.Framework.Staff.Entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Citadel.Framework.Staff.Entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://srv12webdev:8020/LiveTestTyrusServices/ClientService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Citadel.Framework.Entity" />
+  <xs:complexType name="StaffEntitySharing">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Citadel.Framework.Entity" base="q1:EntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AllowUpdate" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EffectiveDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExpiryDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FilterOnEntityAccountTypeL" type="xs:short" />
+          <xs:element minOccurs="0" name="FilterOnEntityCompanyID" type="ser:guid" />
+          <xs:element minOccurs="0" name="FilterOnEntityOfficeL" type="xs:short" />
+          <xs:element minOccurs="0" name="IsPrimaryContact" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SharedClientID" type="ser:guid" />
+          <xs:element minOccurs="0" name="SharedStaffGroupID" type="ser:guid" />
+          <xs:element minOccurs="0" name="SharedStaffID" type="ser:guid" />
+          <xs:element minOccurs="0" name="StaffGroupID" type="ser:guid" />
+          <xs:element minOccurs="0" name="StaffID" type="ser:guid" />
+          <xs:element minOccurs="0" name="UseFilters" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StaffEntitySharing" nillable="true" type="tns:StaffEntitySharing" />
+</xs:schema>

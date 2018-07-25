@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Citadel.Web.TyrusServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Citadel.Web.TyrusServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://srv12webdev:8006/Citadel.Web.Service/ClientAuthService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfWebComponent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebComponent" nillable="true" type="tns:WebComponent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebComponent" nillable="true" type="tns:ArrayOfWebComponent" />
+  <xs:complexType name="WebComponent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Area" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Component" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Controller" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsMenuItem" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Level" type="xs:short" />
+      <xs:element minOccurs="0" name="ParentID" type="xs:short" />
+      <xs:element minOccurs="0" name="SortIndex" type="xs:short" />
+      <xs:element minOccurs="0" name="WebComponentL" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WebComponent" nillable="true" type="tns:WebComponent" />
+  <xs:complexType name="ArrayOfWebCredentialsMapping">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebCredentialsMapping" nillable="true" type="tns:WebCredentialsMapping" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebCredentialsMapping" nillable="true" type="tns:ArrayOfWebCredentialsMapping" />
+  <xs:complexType name="WebCredentialsMapping">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExternalUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartyId" type="ser:guid" />
+      <xs:element minOccurs="0" name="WebApplicationL" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WebCredentialsMapping" nillable="true" type="tns:WebCredentialsMapping" />
+</xs:schema>

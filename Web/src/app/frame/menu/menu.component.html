@@ -1,0 +1,102 @@
+<div *ngIf="menuServ.showMenu == true; then showMenuBar">
+</div>
+<ng-template #showMenuBar>
+    <nav id="menu" class="menu">
+
+        <header class="menu-header">
+            <span class="menu-header-title">MENU</span>
+        </header>
+
+        <h3 class="menu-section-title" style="border-bottom: solid medium;padding-bottom: 10px">Navigation</h3>
+        <div *ngIf="accountSV.isAccountLogin() == false; then showLoginMenu; else showFullMenu">
+        </div>
+
+        <ng-template #showLoginMenu>
+
+            <ul class="menu-section-list">
+                <li>
+                    <a style="font-family: Century Gothic" (click)="changeRoute('/')">
+                        <span style="padding-left:10px">Login</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </ng-template>
+
+        <ng-template #showFullMenu>
+            <ul class="menu-section-list">
+                <li>
+                    <a style="font-family: Century Gothic" (click)="logOut()">
+                        <span style="padding-left:10px;text-transform: uppercase">Logout</span>
+                    </a>
+                </li>
+            </ul>
+
+            <section class="menu-section" style=" max-height: 300px;" [ngClass]="menuServ.showMenu == true ? 'appMenuShow':'appMenuHide' ">
+                <div *ngIf="menuServ.getMenuList().length > 0">
+                    <ul class="menu-section-list">
+                        <div *ngFor="let menu of menuServ.getMenuList()">
+                            <div *ngIf="menuServ.hasSubElements(menu.WebComponentL,true) == true; then buildSubMenu;else mainMenu">
+                            </div>
+                            <!-- <ng-template #buildSubMenu>
+                                <app-accordion-panel [title]="menu.Component" [expanded]="false" flat="true" style="background-color: orange">
+                                    <div *ngFor="let submenu of menuServ.getSubMenuList(menu.WebComponentL,true)">
+                                        <app-accordion-panel [title]="submenu.Component" (click)="changeRoute('/' + submenu.Component,menu.Component + '-' + submenu.Component )"
+                                            [expanded]="false" flat="true" style="padding-left: 20px;">
+
+                                        </app-accordion-panel>
+                                    </div>
+                                </app-accordion-panel>
+                            </ng-template>
+                            <ng-template #mainMenu>
+                                <app-accordion-panel [title]="menu.Component" (click)="changeRoute('/' + menu.Component,menu.Component)" [expanded]="false"
+                                    flat="true" style="background-color: orange"> </app-accordion-panel>
+                            </ng-template> -->
+
+                            <ng-template #buildSubMenu>
+                                <li>
+                                    <a style="font-family: Century Gothic">
+                                        {{menu.Component}}
+                                    </a>
+                                    
+                                    <ul class="menu-section-listsub">
+                                        <div *ngFor="let submenu of menuServ.getSubMenuList(menu.WebComponentL,true)">
+                                            <li>
+                                                <a style="font-family: Century Gothic" (click)="changeRoute('/' + submenu.Component,menu.Component + '-' + submenu.Component )">
+                                                    {{submenu.Component}}
+                                                </a>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                </li>
+                            </ng-template>
+                            <ng-template #mainMenu>
+                                <li>
+                                    <a style="font-family: Century Gothic" (click)="changeRoute('/' + menu.Component,menu.Component)">
+                                        {{menu.Component}}
+                                    </a>
+                                </li>
+                            </ng-template>
+
+                        </div>
+                    </ul>
+                </div>
+            </section>
+
+        </ng-template>
+        <section class="menu-section" style="border-top: solid medium gray;padding-top: 10px">
+
+            <ul class="menu-section-list">
+                <li>
+                    <a class="ico_info" onclick='return alert(""
+            + "MySecureZone App" + "\n"
+            + "\n"
+            + "Created by Citadel" + "\n\n"
+            + "version 1.0.0");' target="_blank">
+                        <span style="padding-left:20px">About</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</ng-template>

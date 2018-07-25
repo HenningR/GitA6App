@@ -1,0 +1,59 @@
+@import '../../../mysecurezoneframework';
+
+
+.notification {
+    border-radius: 4px;
+    @include shadow-thin-bottom;
+    max-width: 30em;
+    margin: 2px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    span {
+        align-self: flex-end;
+        max-width: 1em;
+        flex: 1 1 auto;
+    }
+    div {
+        align-self: stretch;
+        flex-grow: 1;
+    }
+}
+
+
+$color-error: desaturate($error, 20%);
+$color-warning: $warning;
+$color-success: desaturate($success, 20%);
+$color-info: $info;
+$notify-background-factor: 30%;
+
+@mixin notify($color) {
+  padding: 10px 10px;
+  vertical-align: middle;
+  text-align: center;
+  // box-sizing: border-box;
+  border: thick black solid;
+  color: black;
+  // text-shadow: 1px 1px 2px white; 
+  font-weight: bold;
+  background: lighten($color, $notify-background-factor);
+  border-color: $color;
+}
+// div {
+//   width: 300px;
+//   margin-bottom: 10px;
+// }
+
+.notify-error {
+  @include notify($color-error);
+}
+.notify-warning {
+  @include notify($color-warning);
+}
+.notify-info {
+  @include notify($color-info);
+}
+.notify-success {
+  @include notify($color-success);
+}

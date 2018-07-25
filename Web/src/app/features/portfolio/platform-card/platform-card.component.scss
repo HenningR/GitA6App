@@ -1,0 +1,46 @@
+.passwordInput {
+    font-family:'Century Gothic';
+    width:100%;
+    margin-bottom: 10px;
+}
+
+.dateInput{
+    font-family:'Century Gothic';
+    width:100%;
+    min-width: 90px;
+    margin-bottom: 10px;
+}
+
+.removePadding {
+    padding: 0;
+    border: solid thin;
+}
+
+@mixin colCenter{
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    //margin-right:-4px;
+    //text-align: center;
+    background-color: #ccc;
+    border: 1px solid #ddd;
+}
+
+.row-centered {
+    text-align:center;
+}
+
+.col-centered {
+    @include colCenter();
+  }
+
+
+.col-centeredNav {
+    @include colCenter();
+    background-color: #ddd;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align: left;
+}

@@ -1,0 +1,45 @@
+<div class="row row-centered " style="padding-top: 30px">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centered topScrollPos">
+    <app-information></app-information>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centered ">
+    <label for="userTitle">Title:</label>
+    <select [(ngModel)]="user.Title" class="passwordInput">
+      <option *ngFor="let item of globalServ.lkpPartyTitles" [value]="item.ID">{{item.Description}}</option>
+    </select>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centered ">
+    <label for="userName">Title:</label>
+    <input type="text" placeholder="Name"  [(ngModel)]="user.FirstNames" value="" class="passwordInput" />
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centered ">
+    <label for="userNickname">Nickname:</label>
+    <input type="text" placeholder="Nickname"  [(ngModel)]="user.NickName" value="" class="passwordInput" />
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centered ">
+    <label for="userSurname">Surname:</label>
+    <input type="text" placeholder="Surname"  [(ngModel)]="user.Surname" value="" class="passwordInput" />
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centered ">
+    <label for="userLanguage">Language:</label>
+    <select   [(ngModel)]="user.Language" class="passwordInput">
+      <option *ngFor="let item of globalServ.lkpSharedLanguages" [value]="item.ID">{{item.Description}}</option>
+    </select>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centered ">
+    <label for="userPostal">Postal address:</label>
+    <br>
+    <textarea placeholder="Postal address"   [(ngModel)]="user.PostalAddress" rows="5" style="width:100%"></textarea>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centered ">
+    <label for="userPhysical">Physical address:</label>
+    <br>
+    <textarea placeholder="Physical address"   [(ngModel)]="user.PhysicalAddress" rows="5" style="width:100%"></textarea>
+  </div>
+</div>
+<div class="row row-centered ">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centeredNav ">
+    <input id="UpdateButton" type="button" (click)="UpdatePersonalDetail()" name="action" value="Update" class="btn btn-primary"
+      style="float: right;" />
+  </div>
+</div>
